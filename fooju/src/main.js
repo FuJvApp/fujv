@@ -7,6 +7,7 @@ import mintUI from 'mint-ui'
 import axios from 'axios'
 import './style/reset.css'
 import './font/iconfont.css'
+import 'mint-ui/lib/style.css'
 // import flexible from 'flexible'
 // import 'flexible'
 Vue.config.productionTip = false
