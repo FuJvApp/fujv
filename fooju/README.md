@@ -1,21 +1,9 @@
-# fooju
+# fujv
+福居APP开发
 
-> A Vue.js project
+--font
+----阿里字体图标
+--style
+----reset:样式重置
+----com：公共样式
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
