@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-demo
-demo2
-=======
->>>>>>> parent of 9371b1a... master1
