@@ -5,7 +5,7 @@
       <div class="m-one"><img src="../../../assets/imgwqn/tu1.png" alt="">
         <div class="m-two">您身边的专业房产经纪人!</div>
         <div class="m-three">
-          <a href=""><img src="../../../assets/imgwqn/zhaof.png" alt=""><div>帮我找房</div></a>
+          <router-link to="/HomeSearch"><img src="../../../assets/imgwqn/zhaof.png" alt=""><div>帮我找房</div></router-link>
           <a href=""><img src="../../../assets/imgwqn/yezhu.png" alt=""><div>我是业主</div></a>
         </div>
       </div></div>
