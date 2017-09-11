@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <header><a href="#/"><</a><span class="one">帮我找房</span></header>
+    <header><a href="" @click.prevent="$router.go(-1)"><</a><span class="one">帮我找房</span></header>
   </div>
 </template>
 <script>
@@ -11,7 +11,7 @@
     line-height: 50px;
     border-bottom: 1px solid grey;
   }
-  a{
+  header a{
     font-size: 30px;
     color: grey;
     font-weight: 500;

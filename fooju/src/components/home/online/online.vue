@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <header><a href="#/"><</a><span style="font-size: 20px">在线委托</span></header>
+    <header><a href="" @click.prevent="$router.go(-1)"><</a><span style="font-size: 20px">在线委托</span></header>
     <div class="middle">
       <div class="m-one">
         <div class="mone-a"><img  src="../../../assets/imgwqn/tu1.png" alt=""></div>
