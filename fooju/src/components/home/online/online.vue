@@ -3,7 +3,7 @@
     <header><a href="" @click.prevent="$router.go(-1)"><</a><span style="font-size: 20px">在线委托</span></header>
     <div class="middle">
       <div class="m-one">
-        <div class="mone-a"><img  src="../../../assets/imgwqn/tu1.png" alt=""></div>
+        <div class="mne-a"><img  src="../../../assets/imgwqn/tu1.png" alt=""></div>
         <div class="m-two">您身边的专业房产经纪人!</div>
         <div class="m-three">
           <router-link to="/HomeSearch"><img src="../../../assets/imgwqn/zhaof.png" alt=""><div>帮我找房</div></router-link>
@@ -34,8 +34,16 @@
     font-size: 20px;
     line-height:100px;
   }
-  .mone-a img{
+  .mne-a{
     width: 100%;
+    text-align: center;
+    height: 30%;
+  }
+  .mne-a img{
+    max-width: 800px;
+    width: 100%;
+    height: 100%;
+    min-height:250px;
   }
   .m-three{
     display: flex;
