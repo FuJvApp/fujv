@@ -26,7 +26,7 @@
         </div>
       </transition>
     </div>
-
+    <div class="bottom"><input type="button" value="马上提交"></div>
   </div>
 </template>
 <script>
@@ -70,81 +70,7 @@
     }
   }
 </script>
-<style scoped>
-  header{
-    line-height: 50px;
-    border-bottom: 1px solid grey;
-  }
-  header a{
-    font-size: 30px;
-    color: grey;
-    font-weight: 500;
-    float:left;
-    padding-left: 20px;
-  }
-  .mn-a,.mn-b{
-    width: 100%;
-    background-color: rgb(239,239,239);
-    display: flex;
-    justify-content: center;
-    padding-bottom: 10px;
-  }
-  .mn-b{
-    transition: all 0s;
-    position: absolute;
-    top: 220px;
-    left: 0;
-    padding-top: 10px;
-  }
-  .fade-enter-to,.fade-leave{
-    transform: translateY(0);
-  }
-  .fade-enter, .fade-leave-to  {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  .fade1-enter-to,.fade1-leave{
-    transform: translateY(0);
-  }
-  .fade1-enter, .fade1-leave-to  {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  .mn-a ul,.mn-b ul{
-    width: 100%;
-    max-height: 190px;
-    height: 100%;
-    min-height: 170px;
-    max-width: 800px;
-    background-color: white;
-    display: flex;
-    justify-content:space-around;
-    align-items: center;
-  }
-  .mn-b ul li{
-    width: 100%;
-  }
-  .mint-cell-value input.mint-field-core{
-    text-align: right;
-    color: black;
-  }
-  .mn-a ul li img{
-    width: 80px;
-    height: 80px;
-  }
-  .wrt div:nth-of-type(1){
-    color:grey;
-  }
-  .wrt:hover div:nth-of-type(1){
-    color:black;
-  }
-  .wrt img{
-    display: block;
-    margin-bottom: 10px;
-  }
-  .mn-b ul li a:nth-of-type(1){
-    border-bottom: 1px solid rgb(239,239,239);
-    margin: auto 10px;
-  }
+<style lang="less" scoped>
+  @import "onlineStyle";
 </style>
 
