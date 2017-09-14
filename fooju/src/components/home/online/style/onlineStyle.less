@@ -42,7 +42,7 @@ header .one{
   opacity: 0;
   transform: translateY(50px);
 }
-.mn-a ul,.mn-b ul{
+.mn-a>ul{
   width: 100%;
   max-height: 190px;
   height: 100%;
@@ -53,8 +53,12 @@ header .one{
   justify-content:space-around;
   align-items: center;
 }
-.mn-b ul li{
+.mn-b ul:nth-of-type(1){
   width: 100%;
+  height: 100%;
+  min-height: 80px;
+  max-width: 800px;
+  background-color: white;
 }
 .mint-cell-value input.mint-field-core{
   text-align: right;
@@ -74,10 +78,6 @@ header .one{
 .wrt img{
   display: block;
   margin-bottom: 10px;
-}
-.mn-b ul li a:nth-of-type(1){
-  border-bottom: 1px solid rgb(239,239,239);
-  margin: auto 10px;
 }
 
 .bottom input{

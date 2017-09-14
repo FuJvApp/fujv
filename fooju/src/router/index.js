@@ -14,6 +14,7 @@ import schoolhome from '../components/home/schoolhome/schoolhome.vue'
 import searchhome from '../components/home/searchhome/searchhome.vue'
 import zuhome from '../components/home/zuhome/zuhome.vue'
 import homesearch from '../components/home/online/HomeSearch.vue'
+import myowner from '../components/home/online/MyOwner.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -65,6 +66,10 @@ export default new Router({
     {
       path: '/HomeSearch',
       component: homesearch
+    },
+    {
+      path: '/MyOwner',
+      component: myowner
     }
   ]
 })
