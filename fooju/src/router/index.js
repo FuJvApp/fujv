@@ -26,7 +26,7 @@ export default new Router({
       children: [
         {path: '/', component: home},
         {path: '/home', name: 'home', component: home},
-        {path: '/first', name: 'first', component: tool},
+        {path: '/tool', name: 'tool', component: tool},
         {path: '/showing', name: 'showing', component: showing},
         {path: '/self', name: 'self', component: self}
       ]

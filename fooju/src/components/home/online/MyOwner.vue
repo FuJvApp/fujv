@@ -12,28 +12,28 @@
       <transition name="fade">
         <div class="mn-b" v-if="show">
           <ul class="one">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
+            <li><mt-field label="小区：" placeholder="12" type="text" v-model="text11"></mt-field></li>
+            <li><mt-field label="户型：" placeholder="几室 几厅" type="text" v-model="text12"></mt-field></li>
+            <li><mt-field label="面积：" placeholder="输入面积" type="text" v-model="text13"></mt-field></li>
+            <li><mt-field label="售价：" placeholder="输入售价" type="text" v-model="text14"></mt-field></li>
           </ul>
           <ul class="two">
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
+            <li><mt-field label="称呼：" placeholder="如何称呼-先生/女士" type="text" v-model="text15"></mt-field></li>
+            <li><mt-field label="联系方式：" class="phone" placeholder="您的联系方式111111" type="number" v-model="number"></mt-field></li>
+            <li><mt-field label="地址：" placeholder="输入地址" type="text" v-model="text16"></mt-field></li>
           </ul>
         </div>
       </transition>
       <transition name="fade1">
         <div class="mn-b" v-if="show1">
           <ul class="one">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            <li><mt-field label="小区：" placeholder="请输入小区名称" type="text" v-model="text1"></mt-field></li>
+            <li><mt-field label="地址：" placeholder="输入地址" type="text" v-model="text2"></mt-field></li>
+            <li><mt-field label="期望租金：" placeholder="输入期望租金" type="text" v-model="text3"></mt-field></li>
           </ul>
           <ul class="two">
-            <li>4</li>
-            <li>5</li>
+            <li><mt-field label="称呼：" placeholder="如何称呼-先生/女士" type="text" v-model="text4"></mt-field></li>
+            <li><mt-field label="联系方式：" placeholder="您的联系方式" type="number" v-model="number"></mt-field></li>
           </ul>
         </div>
       </transition>
@@ -105,23 +105,6 @@
   .mn-b .two{
     margin-top:10px ;
   }
-
-  /*.mn-b .two{
-    margin-top:10px ;
-    display: block;
-    width: 100%;
-    min-height: 100px;
-    height: 100%;
-    max-width: 800px;
-    background-color: white;
-  }
-.mn-b .two li div{
-  border-bottom: 1px solid rgb(239,239,239);
-  width: 100%;
-  display: block;
-  line-height: 50px;
-  margin: auto 10px;
-}*/
 </style>
 
 
