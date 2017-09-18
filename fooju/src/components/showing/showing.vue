@@ -30,5 +30,19 @@
   }
 </script>
 <style scoped="">
-
+.page-show{
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+  header{
+    line-height: 50px;
+    display: flex;
+    justify-content: space-around;
+  }
+header span:hover{
+  color: red;
+  border-bottom: 3px solid red;
+}
 </style>

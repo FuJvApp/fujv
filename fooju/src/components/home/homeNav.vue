@@ -36,6 +36,8 @@
       border-top: 1px solid #cccccc;
       padding: 10px 0;
       position: fixed;
+      bottom: 0;
+      left: 0;
     }
     footer a{flex: 1}
     footer .iconfont{font-size: 20px;font-weight: bold;}

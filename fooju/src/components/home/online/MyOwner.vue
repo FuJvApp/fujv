@@ -3,11 +3,11 @@
     <header><a href="" @click.prevent="$router.go(-1)"><</a><span class="one">我是业主</span></header>
     <div class="mn-a">
       <ul>
-        <li class="wrt"><img v-if="status==0 && show==false"  @click="appear(status)" src="../../../assets/imgwqn/tool/mai1.png" alt="">
-          <img v-else="status==1 && show==true" @click="appear(status)" src="../../../assets/imgwqn/tool/mai2.png" alt=""><div>我要卖房</div>
+        <li class="wrt"><img v-if="status==0 && show==false" @click="appear(status)" src="../../../assets/imgwqn/sousuo/mai1.png" alt="">
+          <img v-else="status==1 && show==true" @click="appear(status)" src="../../../assets/imgwqn/sousuo/mai2.png" alt=""><div>我要卖房</div>
         </li>
-        <li class="wrt"><img v-if="status1==0 && show1==false" @click="appearsa(status1)" src="../../../assets/imgwqn/tool/chuzu1.png" alt="">
-          <img v-else="status1==1 && show1==true" @click="appearsa(status1)" src="../../../assets/imgwqn/tool/chuzu2.png" alt=""><div>我要出租</div></li>
+        <li class="wrt"><img v-if="status1==0 && show1==false" @click="appearsa(status1)" src="../../../assets/imgwqn/sousuo/chuzu1.png" alt="">
+          <img v-else="status1==1 && show1==true" @click="appearsa(status1)" src="../../../assets/imgwqn/sousuo/chuzu2.png" alt=""><div>我要出租</div></li>
       </ul>
       <transition name="fade">
         <div class="mn-b" v-if="show">

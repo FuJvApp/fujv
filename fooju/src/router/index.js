@@ -6,6 +6,7 @@ import tool from '../components/tool/tool.vue'
 import showing from '../components/showing/showing.vue'
 import Date from '../components/showing/date1.vue'
 import jilu from '../components/showing/date2.vue'
+import biaolist from '../components/showing/liebiaolist.vue'
 import self from '../components/self/self.vue'
 import twohome from '../components/home/twohome/twohome.vue'
 import foundhome from '../components/home/foundhome/foundhome.vue'
@@ -96,6 +97,10 @@ export default new Router({
     {
       path: '/MyOwner',
       component: myowner
+    },
+    {
+      path: '/liebiaolist',
+      component: biaolist
     }
   ]
 })
