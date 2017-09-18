@@ -1,37 +1,34 @@
 <template>
-  <div class="page-navbar">
-    <mt-navbar class="page-part" v-model="selected">
-      <mt-tab-item id="1">选项一</mt-tab-item>
-      <mt-tab-item id="2">选项二</mt-tab-item>
-      <mt-tab-item id="3">选项三</mt-tab-item>
-    </mt-navbar>
-    <mt-tab-container v-model="selected">
-      <mt-tab-container-item id="1">
-        <div>1</div>
-      </mt-tab-container-item>
-      <mt-tab-container-item id="2">
-        <div>2</div>
-      </mt-tab-container-item>
-      <mt-tab-container-item id="3">
-        <div>3</div>
-      </mt-tab-container-item>
-    </mt-tab-container>
-  </div>
+<div class="page-show">
+  <header>
+    <span @click="date">看房日程</span>
+    <span @click="Records()">看房记录</span>
+  </header>
+  <main>
+    <template>
+     <router-view></router-view>
+    </template>
+  </main>
+</div>
 </template>
 
 <script>
   export default {
-    name: 'page-navbar',
     data () {
       return {
-        selected: '1'
+
+      }
+    },
+    methods: {
+      date () {
+        this.$router.push('/date1')
+      },
+      Records () {
+        this.$router.push('/date2')
       }
     }
   }
 </script>
-<style>
-  .page-navbar{
-    flex: 1;
-    height: 100%;
-  }
+<style scoped="">
+
 </style>
