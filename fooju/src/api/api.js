@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/9/4.
  */
-let serverUrl = 'http://114.215.83.139/fjw/api.php?'
+let serverUrl = 'http://www.fooju.cn/fjw/api.php?'
 export default {
   serverUrl: 'http://www.fooju.cn/',
   login: serverUrl + 's=Login/login', /* 登录 */

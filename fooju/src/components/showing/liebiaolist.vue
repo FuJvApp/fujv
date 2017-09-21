@@ -23,9 +23,9 @@
         <li v-for="data in tableData">
           <a class="one" href=""><img src="../../assets/lunbotu.png" alt=""></a>
           <a class="two" href="">
-          <p>{{data.title}}</p>
+          <p>{{data.village}}</p>
           <p>{{data.bedroom}}室{{data.livingroom}}厅{{data.wc}}卫/{{data.built_area}}㎡/{{data.direction}}</p>
-          <p>{{data.total_price}}万 <span>{{data.unit_price}}元/㎡</span></p>
+          <p><b style="color: #c30d23">{{data.total_price}}万&nbsp</b> <span style="color: #999;font-size: 12px">{{data.unit_price}}元/㎡</span></p>
           </a>
         </li>
       </ul>
@@ -48,8 +48,8 @@
     methods: {
       getData () {
         var self = this
-        usedLists({page_num: 1, page_size: 10}).then(function (res) {
-          // console.log(res)
+        usedLists({page_num: 1, page_size: 30}).then(function (res) {
+          console.log(res)
           if (res.data && res.data.code === 200) {
             self.tableData = res.data.data
             console.log(self.tableData)
@@ -71,7 +71,7 @@
     height: 50px;
     display: flex;
     justify-content: space-around;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid rgb(226,226,226);
   }
 .iconfont{
   color: lightgrey;
@@ -80,30 +80,32 @@
 }
   .lie-list{
     width: 100%;
+    padding-top: 10px;
   }
   .lie-list li{
     height: 100px;
     width: 100%;
     display: flex;
     align-items: center;
-    margin-top: 0;
+    margin: 0 10px;
+    border-bottom: 1px solid rgb(226,226,226);
+  }
+  .lie-list li .one{
+   margin: auto 10px;
   }
   .lie-list li .one img{
     width: 80px;
     height: 80px;
     vertical-align: middle;
   }
-  /*.lie-list li .one{
-    width: 100px;
-    height: 100px;
-    margin: 0 ;
-    float: left;
+  .lie-list li .two p:nth-of-type(1){
+    font-size: 14px;
+  }
+  .lie-list li .two p:nth-of-type(2){
+    font-size: 12px;
+    line-height: 36px;
+    color: #999;
   }
 
-  .lie-list li .two{
-    height: 100px;
-    display: inline-block;
-    margin: auto 10px;
-  }*/
 </style>
 
