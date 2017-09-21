@@ -64,48 +64,5 @@
 </script>
 <style scoped>
   @import "lbstyle.less";
-  .biu{
-    margin: 0;
-    background-color: white;
-    line-height: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
-    border-bottom: 1px solid rgb(226,226,226);
-  }
-.iconfont{
-  color: lightgrey;
-  font-size: 20px;
-  margin-left: 5px;
-}
-  .lie-list{
-    width: 100%;
-    padding-top: 10px;
-  }
-  .lie-list li{
-    height: 100px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin: 0 10px;
-    border-bottom: 1px solid rgb(226,226,226);
-  }
-  .lie-list li .one{
-   margin: auto 10px;
-  }
-  .lie-list li .one img{
-    width: 80px;
-    height: 80px;
-    vertical-align: middle;
-  }
-  .lie-list li .two p:nth-of-type(1){
-    font-size: 14px;
-  }
-  .lie-list li .two p:nth-of-type(2){
-    font-size: 12px;
-    line-height: 36px;
-    color: #999;
-  }
-
 </style>
 
