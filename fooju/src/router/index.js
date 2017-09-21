@@ -7,6 +7,7 @@ import showing from '../components/showing/showing.vue'
 import Date from '../components/showing/date1.vue'
 import jilu from '../components/showing/date2.vue'
 import biaolist from '../components/showing/liebiaolist.vue'
+import searchOne from '../components/showing/searchOne.vue'
 import self from '../components/self/self.vue'
 import twohome from '../components/home/twohome/twohome.vue'
 import foundhome from '../components/home/foundhome/foundhome.vue'
@@ -24,19 +25,16 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'homeNav',
       component: homeNav,
       children: [
         {path: '/', component: home},
-        {path: '/home', name: 'home', component: home},
+        {path: '/home', component: home},
         {
           path: '/tool',
-          name: 'tool',
           component: tool
         },
         {
           path: '/showing',
-          name: 'showing',
           component: showing,
           children: [
             {
@@ -45,17 +43,18 @@ export default new Router({
             },
             {
               path: '/date1',
-              name: 'date1',
               component: Date
             },
             {
               path: '/date2',
-              name: 'date2',
               component: jilu
             }
           ]
         },
-        {path: '/self', name: 'self', component: self}
+        {
+          path: '/self',
+          component: self
+        }
       ]
     },
     {
@@ -101,6 +100,10 @@ export default new Router({
     {
       path: '/liebiaolist',
       component: biaolist
+    },
+    {
+      path: '/searchOne',
+      component: searchOne
     }
   ]
 })

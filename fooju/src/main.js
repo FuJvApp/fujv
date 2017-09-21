@@ -6,16 +6,15 @@ import 'element-ui/lib/theme-default/index.css'
 import App from './App'
 import router from './router'
 import mintUI from 'mint-ui'
-import axios from 'axios'
 import './style/reset.css'
 import './font/iconfont.css'
+import './fontwqn/iconfont.css'
 import 'mint-ui/lib/style.css'
 // import flexible from 'flexible'
 // import 'flexible'
 Vue.config.productionTip = false
 // Vue.use(mintUI)
 Vue.use(mintUI)
-Vue.use(axios)
 Vue.use(ElementUI)
 
 /* eslint-disable no-new */

@@ -1,13 +1,13 @@
 /**
  * Created by Administrator on 2017/9/4.
  */
-let serverUrl = 'http://www.fooju.cn/fjw/api.php?'
+let serverUrl = 'http://114.215.83.139/fjw/api.php?'
 export default {
   serverUrl: 'http://www.fooju.cn/',
   login: serverUrl + 's=Login/login', /* 登录 */
   register: serverUrl + 's=Login/register', /* 注册 */
-  used_lists: serverUrl + 's=Product/used_lists', /* 二手房列表 */
-  used_detail: serverUrl + 's=Product/used_detail_app', /* 二手房列详情 */
+  usedLists: serverUrl + 's=Product/used_lists', /* 二手房列表 */
+  usedDetail: serverUrl + 's=Product/used_detail_app', /* 二手房列详情 */
   adLists: serverUrl + 's=Advertisement/lists', /* 新闻列表 */
   adDetail: serverUrl + 's=Advertisement/detail', /* 新闻详情 */
   bottomLists: serverUrl + 's=Bottom/lists', /* 底部网站管理列表 */

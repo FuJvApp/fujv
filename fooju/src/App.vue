@@ -18,5 +18,6 @@ export default {
   margin: 0;
   padding: 0;
   text-align: center;
+  background-color: rgb(239,239,239);;
 }
 </style>
