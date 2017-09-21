@@ -12,16 +12,16 @@
       <transition name="fade">
         <div class="mn-b" v-if="show">
           <ul><li>
-            <mt-field label="称呼：" placeholder="如何称呼-先生/女士" v-model="username"></mt-field>
-            <mt-field label="联系方式：" placeholder="您的联系方式" type="tel" v-model="phone"></mt-field>
+            <mt-field label="称呼：" placeholder="如何称呼-先生/女士" ></mt-field>
+            <mt-field label="联系方式：" placeholder="您的联系方式" type="tel" ></mt-field>
           </li></ul>
         </div>
       </transition>
       <transition name="fade1">
         <div class="mn-b" v-if="show1">
           <ul><li>
-            <mt-field label="称呼：" placeholder="如何称呼-先生/女士" v-model="username"></mt-field>
-            <mt-field label="联系方式：" placeholder="您的联系方式" type="tel" v-model="phone"></mt-field>
+            <mt-field label="称呼：" placeholder="如何称呼-先生/女士" ></mt-field>
+            <mt-field label="联系方式：" placeholder="您的联系方式" type="tel" ></mt-field>
           </li></ul>
         </div>
       </transition>

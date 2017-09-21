@@ -5,6 +5,6 @@ export const usedDetail = data => {
   return axios.get(api.usedDetail, {id: data})
 }
 export const usedLists = params => {
-  return axios.get(api.usedLists, {params: params})
+  return axios.get(api.used_lists, {params: params})
 }
 

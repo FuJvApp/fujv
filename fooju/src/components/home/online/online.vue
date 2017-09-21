@@ -28,7 +28,7 @@
     color: grey;
     font-weight: 500;
     float:left;
-    padding-left: 10px;
+    margin-left: 10px;
   }
   .m-two{
     font-size: 20px;
@@ -50,7 +50,7 @@
     justify-content: space-around;
   }
   .m-three img{
-    width: 80px;
+    width: 85px;
     height: 90px;
   }
 </style>

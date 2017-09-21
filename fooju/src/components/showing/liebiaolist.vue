@@ -19,12 +19,14 @@
         <li>房型<i class="iconfont icon-arrow-bottom"></i></li>
         <li>更多<i class="iconfont icon-arrow-bottom"></i></li>
       </ul>
-      <ul>
-        <li stripe :data="tableData">
-          <!--img src="" alt="">
+      <ul class="lie-list">
+        <li v-for="data in tableData">
+          <a class="one" href=""><img src="../../assets/lunbotu.png" alt=""></a>
+          <a class="two" href="">
           <p>{{data.title}}</p>
-          <p>{{data.bedroom}}室{{data.livinggroom}}厅{{data.wc}}卫/{{data.use_area}}</p>
-          <p></p>-->
+          <p>{{data.bedroom}}室{{data.livingroom}}厅{{data.wc}}卫/{{data.built_area}}㎡/{{data.direction}}</p>
+          <p>{{data.total_price}}万 <span>{{data.unit_price}}元/㎡</span></p>
+          </a>
         </li>
       </ul>
     </main>
@@ -36,7 +38,8 @@
     data () {
       return {
         activeIndex: '1',
-        tableData: []
+        tableData: [],
+        selected: '1'
       }
     },
     created () {
@@ -44,13 +47,13 @@
     },
     methods: {
       getData () {
-//        var self = this
-        usedLists({page_num: 1, page_size: 5}).then(function (res) {
-          console.log(res)
-//          if (res.data && res.data.code === 1) {
-//            self.tableData = res.data.data
-//            console.log(res.data)
-//          }
+        var self = this
+        usedLists({page_num: 1, page_size: 10}).then(function (res) {
+          // console.log(res)
+          if (res.data && res.data.code === 200) {
+            self.tableData = res.data.data
+            console.log(self.tableData)
+          }
         })
       },
       sousuoone () {
@@ -62,8 +65,10 @@
 <style scoped>
   @import "lbstyle.less";
   .biu{
+    margin: 0;
     background-color: white;
     line-height: 50px;
+    height: 50px;
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid lightgrey;
@@ -73,5 +78,32 @@
   font-size: 20px;
   margin-left: 5px;
 }
+  .lie-list{
+    width: 100%;
+  }
+  .lie-list li{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+  }
+  .lie-list li .one img{
+    width: 80px;
+    height: 80px;
+    vertical-align: middle;
+  }
+  /*.lie-list li .one{
+    width: 100px;
+    height: 100px;
+    margin: 0 ;
+    float: left;
+  }
+
+  .lie-list li .two{
+    height: 100px;
+    display: inline-block;
+    margin: auto 10px;
+  }*/
 </style>
 

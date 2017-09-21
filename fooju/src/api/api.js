@@ -6,7 +6,7 @@ export default {
   serverUrl: 'http://www.fooju.cn/',
   login: serverUrl + 's=Login/login', /* 登录 */
   register: serverUrl + 's=Login/register', /* 注册 */
-  usedLists: serverUrl + 's=Product/used_lists', /* 二手房列表 */
+  used_lists: serverUrl + 's=Product/used_lists', /* 二手房列表 */
   usedDetail: serverUrl + 's=Product/used_detail_app', /* 二手房列详情 */
   adLists: serverUrl + 's=Advertisement/lists', /* 新闻列表 */
   adDetail: serverUrl + 's=Advertisement/detail', /* 新闻详情 */
