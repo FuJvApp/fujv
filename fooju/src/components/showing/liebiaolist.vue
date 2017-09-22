@@ -14,14 +14,14 @@
       </el-carousel>
     </div>
       <ul class="biu">
-        <li>区域<i class="iconfont icon-arrow-bottom"></i></li>
+        <li @click="areaone">区域<i class="iconfont icon-arrow-bottom"></i></li>
         <li>价格<i class="iconfont icon-arrow-bottom"></i></li>
         <li>房型<i class="iconfont icon-arrow-bottom"></i></li>
         <li>更多<i class="iconfont icon-arrow-bottom"></i></li>
       </ul>
       <ul class="lie-list">
         <li v-for="data in tableData">
-          <a class="one" href=""><img src="../../assets/lunbotu.png" alt=""></a>
+          <a class="one" href="" ><img src="../../assets/lunbotu.png" alt=""></a>
           <a class="two" href="">
           <p>{{data.village}}</p>
           <p>{{data.bedroom}}室{{data.livingroom}}厅{{data.wc}}卫/{{data.built_area}}㎡/{{data.direction}}</p>
@@ -30,20 +30,50 @@
         </li>
       </ul>
     </main>
+    <mt-popup
+      v-model="popupVisible"
+      position="top"
+      popup-transition="popup-fade">
+      <div class="page-title">Navbar</div>
+      <!-- navbar -->
+      <mt-navbar class="page-part" v-model="selected" fixed="true">
+        <mt-tab-item id="1">区域<i class="iconfont icon-arrow-bottom1"></i></mt-tab-item>
+        <mt-tab-item id='2'>选项二</mt-tab-item>
+        <mt-tab-item id='3'>选项三</mt-tab-item>
+      </mt-navbar>
+      <!-- tabcontainer -->
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="1">
+          <mt-cell v-for="n in 10" :title="'内容 ' + n" />
+        </mt-tab-container-item>
+        <mt-tab-container-item id='2'>
+          <mt-cell v-for="n in 4" :title="'测试 ' + n" />
+        </mt-tab-container-item>
+        <mt-tab-container-item id='3'>
+          <mt-cell v-for="n in 6" :title="'选项 ' + n" />
+        </mt-tab-container-item>
+      </mt-tab-container>
+    </mt-popup>
   </div>
 </template>
 <script >
   import { usedLists } from '../../api/config.js'
+  import { Navbar, TabItem } from 'mint-ui'
   export default{
     data () {
       return {
         activeIndex: '1',
         tableData: [],
-        selected: '1'
+        selected: '1',
+        popupVisible: false
       }
     },
     created () {
       this.getData()
+    },
+    component: {
+      Navbar,
+      TabItem
     },
     methods: {
       getData () {
@@ -58,11 +88,20 @@
       },
       sousuoone () {
         this.$router.push('/searchOne')
+      },
+      areaone () {
+        this.popupVisible = true
       }
     }
   }
 </script>
 <style scoped>
   @import "lbstyle.less";
+  .mint-popup-top{
+    width: 100%;
+  }
+  .mint-tab-container{
+    margin-top: 40px;
+  }
 </style>
 
