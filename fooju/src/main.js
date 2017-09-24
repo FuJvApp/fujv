@@ -13,6 +13,7 @@ import 'mint-ui/lib/style.css'
 // import flexible from 'flexible'
 // import 'flexible'
 Vue.config.productionTip = false
+Vue.config.silent = true
 // Vue.use(mintUI)
 Vue.use(mintUI)
 Vue.use(ElementUI)
