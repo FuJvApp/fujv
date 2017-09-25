@@ -34,6 +34,7 @@
       width: 100%;
       display: flex;
       border-top: 1px solid #cccccc;
+      background: white;
       padding: 10px 0;
       position: fixed;
       bottom: 0;
