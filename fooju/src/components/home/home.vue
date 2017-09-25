@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="home">
       <Swipe class="swipe" :auto="2000">
         <SwipeItem class="swipeItem"><img src="../../assets/lunbotu.png" alt=""></SwipeItem>
         <SwipeItem class="swipeItem"><img src="../../assets/lunbotu.png" alt=""></SwipeItem>
       </Swipe>
-      <section>
+      <section class="homebar">
         <ul>
           <li>
             <router-link to="/twohome">
@@ -104,7 +104,7 @@
           <span>福居百科</span>
           <a href="">更多 ></a>
         </p>
-        <ul>
+        <ul class="fojvbknav">
           <li><a href=""><img src="../../assets/home-icon/ershou.png" alt=""><span>二手房</span></a></li>
           <li><a href=""><img src="../../assets/home-icon/xinfang.png" alt=""><span>新房</span></a></li>
           <li><a href=""><img src="../../assets/home-icon/goufang.png" alt=""><span style="left: 1rem">购房宝典</span></a></li>
@@ -147,6 +147,9 @@
 </script>
 
 <style lang="less" scoped>
+  .home{
+    background: rgb(235,235,235);
+  }
   .swipe{
     width: 100%;
     height: 24rem;
@@ -161,27 +164,34 @@
       }
     }
   }
-  ul{
-    margin-top: 2rem;
-    margin-left: 1.5rem;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    li{
-      float: left;
-      width: 8rem;
+  .homebar{
+    background: white;
+    ul{
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      margin-left: 1.5rem;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      li{
+        float: left;
+        width: 8rem;
       img{
         width: 3rem;
         height: 3rem;
-      }
+        }
       span{
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         display: block;
+        }
       }
     }
   }
+
   .fojvheader{
-    margin-top: 4rem;
+    margin-top: 1rem;
+    padding: .5rem;
+    background: white;
     width: 100%;
     height: 4.3rem;
     img{
@@ -220,7 +230,9 @@
     }
   }
   .fojvactive{
-    margin-top: 2rem;
+    margin-top: 1rem;
+    padding: .5rem;
+    background: white;
     height: 100%;
     width: 100%;
     .activeheader{
@@ -241,7 +253,7 @@
     }
     .activeswipe{
       height: 26.1rem;
-      margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+      margin: 1rem 1.5rem 1.5rem 1.5rem;
       overflow: hidden;
       .activeitem{
         width: 100%;
@@ -255,55 +267,53 @@
   }
   .fojvbk{
     width: 100%;
-    height: 100%;
-    margin: 1.5rem auto 5rem auto;
+    padding: .5rem;
+    height: 10rem;
+    background: white;
+    overflow: hidden;
+    position: relative;
+    margin: 1rem auto 1rem auto;
     .activeheader{
       width: 100%;
-      height: 1.5rem;
-    span{
-      font-size: 2rem;
-      float: left;
-      margin: .5rem 0 0 1.5rem;
-    }
-    a{
-      float: right;
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      margin-right: 1.5rem;
-      color: #999;
-    }
-    }
-    ul{
-      height: 100%;
-      width: 100%;
-      li{
-        height: 100%;
-        margin: 0 .5rem 0 0;
-        width: 6rem;
-        a{
-          display: block;
-          position: relative;
-          text-align: center;
-          margin: 0 auto;
-          img{
-            width: 100%;
-            height: 100%;
-          }
-          span{
-            position: absolute;
-            text-align: center;
-            color: white;
-            left: 2rem;
-            margin-top: -3rem;
-          }
-        }
+      height: 2rem;
+      span{
+        font-size: 2rem;
+        float: left;
+        margin: .5rem 0 0 1.5rem;
       }
+      a{
+        float: right;
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        margin-right: 1.5rem;
+        color: #999;
+      }
+    }
+  }
+  .fojvbknav {
+    margin-top: 1rem;
+    position: absolute;
+    width:100%;
+  li{
+    float: left;
+    padding: .5rem;
+    width: 5.7rem;
+  }
+    img{
+      width: 5.5rem;
+      height:5.5rem;
+    }
+    span{
+      display: block;
+      color: white;
+      margin-top: -3.2rem;
     }
   }
   .hot{
     width: 100%;
+    background: white;
     height: 100%;
-    margin: 2rem 0 3rem 0;
+    margin: 1rem 0 3rem 0;
   .activeheader{
     width: 100%;
     height: 1.5rem;
@@ -329,16 +339,26 @@
     margin: 2rem auto 4.4rem auto;
     background: #2f3130;
     p{
-      padding: 1rem;
+      height: 1.5rem;
+      padding: .5rem;
+      line-height: 1.5rem;
+      font-size: 1.3rem;
       text-align: left;
       color: #727373;
     }
+    ul{
+      height: 3rem;
+    }
     li{
+      margin: 1rem ;
+      font-size: 1.3rem;
       color: #727373;
+      float: left;
     }
     .footerlink-right{
       p{
         text-align: right;
+        font-size: 1.3rem;
       }
     }
   }
