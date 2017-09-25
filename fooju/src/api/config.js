@@ -7,4 +7,10 @@ export const usedDetail = data => {
 export const usedLists = params => {
   return axios.get(api.used_lists, {params: params})
 }
+export const newlist = params => {
+  return axios.get(api.NewList, {params: params})
+}
+export const villagefind = params => {
+  return axios.get(api.VillageFind, {params: params})
+}
 
