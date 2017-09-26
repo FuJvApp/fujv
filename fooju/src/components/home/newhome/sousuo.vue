@@ -4,7 +4,7 @@
         <div class="sousuo2">
           <el-input  v-model="value" icon='search' placeholder="输入楼盘进行搜索" :on-icon-click="clicksousuo"></el-input>
         </div>
-        <a href="#newhome">取消</a>
+        <a @click="routerback">取消</a>
       </div>
       <div class="lishi">
         <div>历史搜索</div>
@@ -68,6 +68,9 @@
       sure () {
         this.lishidialog = false
         this.dialogvisible = false
+      },
+      routerback () {
+        this.$router.go(-1)
       }
     }
   }
