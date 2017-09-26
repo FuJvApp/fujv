@@ -44,31 +44,31 @@
       <transition class="fade">
         <mt-tab-container v-model="selected">
           <mt-tab-container-item id="1">
-            <div><span>不限</span></div>
-            <div><span>金桥开发区</span></div>
-            <div><span>如意开发区</span></div>
-            <div><span>玉泉区</span></div>
-            <div><span>回民区</span></div>
-            <div><span>赛罕区</span></div>
-            <div><span>新城区</span></div>
+            <div class="w"><span>不限</span></div>
+            <div class="w"><span>金桥开发区</span></div>
+            <div class="w"><span>如意开发区</span></div>
+            <div class="w"><span>玉泉区</span></div>
+            <div class="w"><span>回民区</span></div>
+            <div class="w"><span>赛罕区</span></div>
+            <div class="w"><span>新城区</span></div>
           </mt-tab-container-item>
           <mt-tab-container-item id='2'>
-            <div><span>不限</span></div>
-            <div><span>50万以下</span></div>
-            <div><span>50万-100万</span></div>
-            <div><span>100万-200万</span></div>
-            <div><span>200万-300万</span></div>
-            <div><span>300万-400万</span></div>
-            <div><span>400万-500万</span></div>
-            <div><span>500万-600万</span></div>
-            <div><span>600万-700万</span></div>
-            <div><span>700万-800万</span></div>
-            <div><span>800万-900万</span></div>
-            <div><span>900万-1000万</span></div>
-            <div><span>1000万以上</span></div>
+            <div class="w"><span>不限</span></div>
+            <div class="w"><span>50万以下</span></div>
+            <div class="w"><span>50万-100万</span></div>
+            <div class="w"><span>100万-200万</span></div>
+            <div class="w"><span>200万-300万</span></div>
+            <div class="w"><span>300万-400万</span></div>
+            <div class="w"><span>400万-500万</span></div>
+            <div class="w"><span>500万-600万</span></div>
+            <div class="w"><span>600万-700万</span></div>
+            <div class="w"><span>700万-800万</span></div>
+            <div class="w"><span>800万-900万</span></div>
+            <div class="w"><span>900万-1000万</span></div>
+            <div class="w"><span>1000万以上</span></div>
           </mt-tab-container-item>
           <mt-tab-container-item id='3'>
-            <div style="line-height: 40px;border: none"><span>不限</span></div>
+            <div class="c"><span>不限</span></div>
             <mt-checklist
               v-model="value"
               align="right"
@@ -76,29 +76,55 @@
             </mt-checklist>
           </mt-tab-container-item>
           <mt-tab-container-item id='4'>
-            <ul class="direct">
-              <li class="direct-li">
-                <label>朝向</label>
-                <ul class="dir-li-div">
-                  <li>东</li>
-                  <li>南</li>
-                  <li>西</li>
-                  <li>北</li>
-                  <li>南北</li>
-                </ul>
-              </li>
+            <ul class="direct" >
               <li class="direct-li">
                 <label>朝向</label>
                 <el-checkbox-group v-model="dir">
-                  <el-checkbox-button v-for="direction in direct" :label="direction" :key="direction">{{direction}}</el-checkbox-button>
+                  <el-checkbox-button v-for="direction in direct0" :label="direction" :key="direction">{{direction}}</el-checkbox-button>
                 </el-checkbox-group>
               </li>
-              <li>3</li>
-              <li>4</li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
+              <li class="direct-li">
+                <label>建筑面积</label>
+                <el-checkbox-group v-model="dir">
+                  <el-checkbox-button v-for="direction in direct1" :label="direction" :key="direction">{{direction}}</el-checkbox-button>
+                </el-checkbox-group>
+              </li>
+              <li class="direct-li">
+                <label>标签</label>
+                <el-checkbox-group v-model="dir">
+                  <el-checkbox-button v-for="direction in direct2" :label="direction" :key="direction">{{direction}}</el-checkbox-button>
+                </el-checkbox-group>
+              </li>
+              <li class="direct-li">
+                <label>房龄</label>
+                <el-checkbox-group v-model="dir">
+                  <el-checkbox-button v-for="direction in direct3" :label="direction" :key="direction">{{direction}}</el-checkbox-button>
+                </el-checkbox-group>
+              </li>
+              <li class="direct-li">
+                <label>楼层</label>
+                <el-checkbox-group v-model="dir">
+                  <el-checkbox-button v-for="direction in direct4" :label="direction" :key="direction">{{direction}}</el-checkbox-button>
+                </el-checkbox-group>
+              </li>
+              <li class="direct-li">
+                <label>装修情况</label>
+                <el-checkbox-group v-model="dir">
+                  <el-checkbox-button v-for="direction in direct5" :label="direction" :key="direction">{{direction}}</el-checkbox-button>
+                </el-checkbox-group>
+              </li>
+              <li class="direct-li">
+                <label>是否配备电梯</label>
+                <el-checkbox-group v-model="dir">
+                  <el-checkbox-button v-for="direction in direct6" :label="direction" :key="direction">{{direction}}</el-checkbox-button>
+                </el-checkbox-group>
+              </li>
+              <li class="direct-li">
+                <label>类型</label>
+                <el-checkbox-group v-model="dir">
+                  <el-checkbox-button v-for="direction in direct7" :label="direction" :key="direction">{{direction}}</el-checkbox-button>
+                </el-checkbox-group>
+              </li>
             </ul>
           </mt-tab-container-item>
 
@@ -109,12 +135,18 @@
 </template>
 <script >
   import { usedLists } from '../../api/config.js'
-  const directions = ['东', '南', '西', '北']
   export default{
     data () {
       return {
         dir: [],
-        direct: directions,
+        direct0: ['东', '南', '西', '北'],
+        direct1: ['50以下', '50-70', '70-90', '90-110', '110-130', '130-150', '150-200', '200以上'],
+        direct2: ['精品房源', '满五唯一'],
+        direct3: ['10年以内', '15年以内', '20年以内', '20年以上', '5年以内'],
+        direct4: ['底层', '低楼层', '中楼层', '高楼层', '顶层'],
+        direct5: ['毛坯', '简易装修', '精装修', '豪华装修'],
+        direct6: ['有电梯', '无电梯'],
+        direct7: ['平层', '复式', '跃层'],
         activeIndex: '1',
         tableData: [],
         selected: '1',
@@ -190,61 +222,79 @@
 </script>
 <style scoped>
   @import "lbstyle.less";
-  .mint-popup-top{
+  .mint-tab-container .mint-tab-container-wrap .mint-tab-container-item .w{
     width: 100%;
+    line-height: 40px;
+    border-bottom: 1px solid rgb(233,233,233);
+    text-align: left;
   }
-  .mint-tab-container{
-    margin-top: 54px;
-  }
-  .mint-navbar{
-    border-bottom: 1px solid rgb(223,223,223);
-  }
-  .mint-navbar .mint-tab-item.is-selected{
-    border: none;
-  }
-  .mint-navbar .mint-tab-item  .mint-tab-item-label .icon-arrow-bottom{
-    transition: all 0.3s;
-  }
-  .mint-navbar .mint-tab-item.is-selected  .mint-tab-item-label .icon-arrow-bottom{
-    display:inline-block;
-    transform:rotate(180deg);
-  }
-  /*.mint-tab-container[data-v-37b24f22] .mint-tab-container-wrap .mint-tab-container-item{
-    animation: xiala 3s ease 0s both ;
-  }*/
-  .mint-tab-container {
-    height: 0;
-    overflow: visible;
-  }
-  .mint-tab-container .mint-tab-container-wrap .mint-tab-container-item{
-    background-color: white;
-    animation: xiala 1s ease 0s both ;
-  }
-  @keyframes xiala {
-    0%{
-      transform:translateY(-100%);
-      visibility: visible;
-    }
-    100%{
-      transform: translateY(0);
-    }
-  }
-     .mint-tab-container .mint-tab-container-wrap .mint-tab-container-item div{
-       width: 100%;
-       line-height: 40px;
-       border-bottom: 1px solid rgb(233,233,233);
-       text-align: left;
-     }
-  .mint-tab-container .mint-tab-container-wrap .mint-tab-container-item div span{
+  .mint-tab-container .mint-tab-container-wrap .mint-tab-container-item .w span{
     margin-left: 20px;
     font-size: 15px;
   }
+
+</style>
+<style>
+  .mint-tab-container .mint-tab-container-wrap .mint-tab-container-item div[data-v-37b24f22].c{
+    text-align: left;
+    padding: 10px 0 0 20px;
+    line-height: 40px;
+    font-size: 16px;
+    border-bottom: 1px solid rgb(233,233,233) ;
+  }
+  /*菜单导航*/
   .mint-tab-item-label span{
     font-size: 16px;
   }
   .mint-navbar .mint-tab-item.is-selected .mint-tab-item-label span{
     color: rgb(95,25,134);
   }
+  /*房型*/
+  .mint-checklist-label .mint-checkbox-label{
+    float: left;
+  }
+  .mint-cell{
+    border-bottom:1px solid rgb(233,233,233) ;
+  }
+  .direct{
+    height: 415px;
+    overflow-y: auto;
+  }
+  .direct .direct-li{
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgb(233,233,233);
+  }
+  .direct .direct-li>label{
+    font-size: 14px;
+  }
+  .mint-tab-container .mint-tab-container-wrap .mint-tab-container-item div[data-v-37b24f22]{
+    line-height: 20px;
+    border: none;
+  }
 
+  .el-checkbox-button{
+    margin:10px;
+    border: 1px solid rgb(95,25,134);
+    border-radius: 5px;
+    line-height: 10px;
+  }
+   .el-checkbox-button.is-checked .el-checkbox-button__inner{
+    line-height: 5px;
+    background-color: rebeccapurple;
+     border: none;
+     box-shadow:0 0 0 rgb(95,25,134);
+  }
+  .el-checkbox-button__inner:hover{
+    color: rgb(95,25,134);
+  }
+  .el-checkbox-button__inner{
+    height: 10px;
+    line-height: 5px;
+    border: none;
+    outline: 1px solid rgb(95,25,134);
+    border-radius: 5px;
+    font-size: 12px;
+  }
 </style>
 
