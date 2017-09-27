@@ -19,101 +19,9 @@ import searchhome from '../components/home/searchhome/searchhome.vue'
 import zuhome from '../components/home/zuhome/zuhome.vue'
 import homesearch from '../components/home/online/HomeSearch.vue'
 import myowner from '../components/home/online/MyOwner.vue'
-<<<<<<< HEAD
 import twoSearch from '../components/home/zuhome/twoSearch.vue'
 Vue.use(Router)
 
-let routes = [
-  {
-    path: '/',
-    component: homeNav,
-    children: [
-      {path: '/', component: home},
-      {path: '/home', component: home},
-      {
-        path: '/tool',
-        component: tool
-      },
-      {
-        path: '/showing',
-        component: showing,
-        children: [
-          {
-            path: '/',
-            component: Date
-          },
-          {
-            path: '/date1',
-            component: Date
-          },
-          {
-            path: '/date2',
-            component: jilu
-          }
-        ]
-      },
-      {
-        path: '/self',
-        component: self
-      }
-    ]
-  },
-  {
-    path: '/twohome',
-    component: twohome
-  },
-  {
-    path: '/foundhome',
-    component: foundhome
-  },
-  {
-    path: '/maphome',
-    component: maphome
-  },
-  {
-    path: '/newhome',
-    component: newhome
-  },
-  {
-    path: '/online',
-    component: online
-  },
-  {
-    path: '/schoolhome',
-    component: schoolhome
-  },
-  {
-    path: '/searchhome',
-    component: searchhome
-  },
-  {
-    path: '/zuhome',
-    component: zuhome
-  },
-  {
-    path: '/twoSearch',
-    component: twoSearch
-  },
-  {
-    path: '/HomeSearch',
-    component: homesearch
-  },
-  {
-    path: '/MyOwner',
-    component: myowner
-  },
-  {
-    path: '/liebiaolist',
-    component: biaolist
-  },
-  {
-    path: '/searchOne',
-    component: searchOne
-  }
-]
-const router = new Router({
-  routes
-=======
 import sousuo from '../components/home/newhome/sousuo.vue'
 Vue.use(Router)
 
@@ -190,6 +98,10 @@ export default new Router({
       component: zuhome
     },
     {
+      path: '/twoSearch',
+      component: twoSearch
+    },
+    {
       path: '/HomeSearch',
       component: homesearch
     },
@@ -206,7 +118,4 @@ export default new Router({
       component: searchOne
     }
   ]
->>>>>>> df8871b78e038e2715d997bf89dd0d2cb2d2914f
 })
-
-export default router

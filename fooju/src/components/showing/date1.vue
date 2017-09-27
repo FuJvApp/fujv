@@ -24,23 +24,23 @@
   background-color:rgb(239,239,239) ;
 }
  .one{
-   padding-top: 110px;
+   padding-top: 1.1rem;
  }
   .one div{
-    margin: 20px auto;
+    margin: .2px auto;
   }
   .two{
-    font-size: 16px;
+    font-size: .16rem;
     width: 40%;
     border: 1px solid red;
     text-align: center;
-    line-height: 35px;
-    border-radius: 5px;
+    line-height: .35rem;
+    border-radius: .05rem;
     outline: none;
     background-color:rgb(239,239,239) ;
   }
   .three img{
-    margin: 20px auto;
+    margin: .2rem auto;
   }
 </style>
 
