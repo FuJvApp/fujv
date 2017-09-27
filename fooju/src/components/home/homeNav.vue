@@ -29,6 +29,7 @@
 </script>
 
 <style>
+<<<<<<< HEAD
   .router-link-active p{color: red}
   footer{
     width: 100%;
@@ -41,4 +42,19 @@
   }
   footer a{flex: 1}
   footer .iconfont{font-size: 20px;font-weight: bold;}
+=======
+    .router-link-active p{color: red}
+    footer{
+      width: 100%;
+      display: flex;
+      border-top: 1px solid #cccccc;
+      background: white;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+    footer a{flex: 1}
+    footer .iconfont{font-size: 20px;font-weight: bold;}
+>>>>>>> df8871b78e038e2715d997bf89dd0d2cb2d2914f
 </style>
