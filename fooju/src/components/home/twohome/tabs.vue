@@ -36,7 +36,7 @@
           v-model="value"></mt-checklist>
         <mt-button class="checklistbtn" size="large">确认</mt-button>
       </el-tab-pane>
-      <el-tab-pane class="lis">
+      <el-tab-pane class="lis" @touchmove.prevent>
         <span slot="label">更多 <i class="iconfont icon-jiantouxia"></i></span>
           <el-checkbox-group v-model="direction">
             <p>朝向</p>

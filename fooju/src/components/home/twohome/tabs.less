@@ -8,8 +8,9 @@
   }
   .lis{
     width: 100%;
-    height: 30rem;
+    height: 100%;
     display: block;
+    overflow: scroll;
     text-align: left;
     li{
       list-style: none;
@@ -29,6 +30,32 @@
       border-radius: .4rem;
     }
   }
+}
+
+.el-dialog{
+  left:0;
+  transform:translateX(0);
+  margin: 0;
+  top:0 !important;
+}
+.el-dialog--small{
+  width: 100%;
+}
+.el-dialog__header{
+  display: none;
+}
+.el-dialog__body{
+  padding: 0;
+}
+.mint-cell{
+  border-bottom: 1px solid #bfcbd9;
+}
+.el-checkbox-group{
+  padding-bottom: 1rem;
+  border-bottom:1px solid #bfcbd9;
+}
+.lis:nth-last-child(1){
+  height: 40rem;
 }
 .el-tabs--border-card>.el-tabs__content{
   padding: 0;

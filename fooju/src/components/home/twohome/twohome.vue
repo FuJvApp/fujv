@@ -1,5 +1,5 @@
 <template>
-  <div :style="{'-webkit-overflow-scrolling': scrollMode}">
+  <div v-model="popupVisible">
     <section class="headertop">
       <router-link to="/">
         <span class="headericon el-icon-arrow-left"></span>
@@ -22,10 +22,11 @@
       <li @click="handleClick3">房型 <i class="iconfont icon-jiantouxia"></i></li>
       <li @click="handleClick4">类型 <i class="iconfont icon-jiantouxia"></i></li>
     </ul>
-    <mt-popup class="popup" v-model="popupVisible" position="top">
-        <tabs></tabs>
-    </mt-popup>
-      <ul class="content"
+    <el-dialog v-model="popupVisible">
+      <tabs></tabs>
+    </el-dialog>
+      <ul
+          class="content"
           v-infinite-scroll="loadMore"
           infinite-scroll-disabled="loading"
           infinite-scroll-distance="10">
