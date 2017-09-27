@@ -11,19 +11,6 @@ export default {
 </script>
 
 <style>
-  html{
-    font-size: 62.5%;
-  }
-  @media only screen and (min-width: 700px) {
-    html{
-      font-size: 87.5% !important;
-    }
-  }
-  @media only screen and (min-width: 1000px) {
-    html{
-      font-size: 100% !important;
-    }
-  }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

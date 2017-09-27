@@ -19,6 +19,9 @@ import searchhome from '../components/home/searchhome/searchhome.vue'
 import zuhome from '../components/home/zuhome/zuhome.vue'
 import homesearch from '../components/home/online/HomeSearch.vue'
 import myowner from '../components/home/online/MyOwner.vue'
+import twoSearch from '../components/home/zuhome/twoSearch.vue'
+Vue.use(Router)
+
 import sousuo from '../components/home/newhome/sousuo.vue'
 Vue.use(Router)
 
@@ -93,6 +96,10 @@ export default new Router({
     {
       path: '/zuhome',
       component: zuhome
+    },
+    {
+      path: '/twoSearch',
+      component: twoSearch
     },
     {
       path: '/HomeSearch',

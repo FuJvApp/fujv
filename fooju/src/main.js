@@ -6,18 +6,22 @@ import 'element-ui/lib/theme-default/index.css'
 import App from './App'
 import router from './router'
 import mintUI from 'mint-ui'
-import './style/reset.css'
 import './font/iconfont.css'
 import './font2/iconfont.css'
 import './fontwqn/iconfont.css'
+import './fontw/iconfont.css'
 import 'mint-ui/lib/style.css'
+import myPlugins from './components/components'
+import * as api from './api/config'
 // import flexible from 'flexible'
 // import 'flexible'
+Vue.prototype.$api = api
 Vue.config.productionTip = false
 Vue.config.silent = true
 // Vue.use(mintUI)
 Vue.use(mintUI)
 Vue.use(ElementUI)
+Vue.use(myPlugins)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
