@@ -21,7 +21,7 @@
       </ul>
       <ul class="lie-list">
         <li v-for="data in tableData">
-          <a class="one" href="" ><img src="../../assets/lunbotu.png" alt=""></a>
+          <a class="one" href="" ><img :src="'http://www.fooju.cn/'+data.pic" alt=""></a>
           <a class="two" href="">
             <p>{{data.village}}</p>
             <p>{{data.bedroom}}室{{data.livingroom}}厅{{data.wc}}卫/{{data.built_area}}㎡/{{data.direction}}</p>
@@ -44,36 +44,15 @@
       <transition class="fade">
         <mt-tab-container v-model="selected">
           <mt-tab-container-item id="1">
-            <div class="w"><span>不限</span></div>
-            <div class="w"><span>金桥开发区</span></div>
-            <div class="w"><span>如意开发区</span></div>
-            <div class="w"><span>玉泉区</span></div>
-            <div class="w"><span>回民区</span></div>
-            <div class="w"><span>赛罕区</span></div>
-            <div class="w"><span>新城区</span></div>
+            <div class="w" v-for="liuni in wlie" :key="wlie"><span>{{liuni.name}}</span></div>
           </mt-tab-container-item>
           <mt-tab-container-item id='2'>
-            <div class="w"><span>不限</span></div>
-            <div class="w"><span>50万以下</span></div>
-            <div class="w"><span>50万-100万</span></div>
-            <div class="w"><span>100万-200万</span></div>
-            <div class="w"><span>200万-300万</span></div>
-            <div class="w"><span>300万-400万</span></div>
-            <div class="w"><span>400万-500万</span></div>
-            <div class="w"><span>500万-600万</span></div>
-            <div class="w"><span>600万-700万</span></div>
-            <div class="w"><span>700万-800万</span></div>
-            <div class="w"><span>800万-900万</span></div>
-            <div class="w"><span>900万-1000万</span></div>
-            <div class="w"><span>1000万以上</span></div>
+            <div class="w" v-for="liuni in wlie1" :key="wlie1"><span>{{liuni.name}}</span></div>
           </mt-tab-container-item>
           <mt-tab-container-item id='3'>
-            <div class="c"><span>不限</span></div>
-            <mt-checklist
-              v-model="value"
-              align="right"
-              :options="options" @change="check">
-            </mt-checklist>
+            <div class="w"><span>不限</span></div>
+            <div class="w" v-for="liuni in wlie2" :key="wlie2" @click="change"><span>{{liuni.name}}</span> <aside :class="{style2:isStyle2}">√</aside></div>
+            <div class="w" :style="style1"><span style="margin: 0">确认</span></div>
           </mt-tab-container-item>
           <mt-tab-container-item id='4'>
             <ul class="direct" >
@@ -125,6 +104,8 @@
                   <el-checkbox-button v-for="direction in direct7" :label="direction" :key="direction">{{direction}}</el-checkbox-button>
                 </el-checkbox-group>
               </li>
+              <li class="direct-li" :style="style1"><span>清空条件</span></li>
+              <li class="direct-li" :style="style1">确定</li>
             </ul>
           </mt-tab-container-item>
 
@@ -138,6 +119,7 @@
   export default{
     data () {
       return {
+        isStyle2: false,
         dir: [],
         direct0: ['东', '南', '西', '北'],
         direct1: ['50以下', '50-70', '70-90', '90-110', '110-130', '130-150', '150-200', '200以上'],
@@ -147,36 +129,16 @@
         direct5: ['毛坯', '简易装修', '精装修', '豪华装修'],
         direct6: ['有电梯', '无电梯'],
         direct7: ['平层', '复式', '跃层'],
+        wlie: [{name: '不限', r_id: 0}, {name: '金桥开发区', r_id: 1}, {name: '如意开发区', r_id: 2}, {name: '玉泉区', r_id: 3}, {name: '赛罕区', r_id: 4}, {name: '新城区', r_id: 5}],
+        wlie1: [{name: '不限', total_price: 0}, {name: '50万以下', total_price: 1}, {name: '50万-100万', total_price: 2
+        }, {name: '100万-200万', total_price: 3}, {name: '200万-300万', total_price: 4}, {name: '300万-400万', total_price: 5}, {name: '400万-500万', total_price: 6}, {name: ' 500万-600万', total_price: 7}, {name: '400万-500万', total_price: 8}, {name: '600万-700万', total_price: 9}, {name: '700万-800万', total_price: 10}, {name: '800万-900万', total_price: 11}, {name: '900万-1000万', total_price: 12}, {name: '1000万以上', total_price: 13}],
+        wlie2: [{name: '一室', bedroom: 0}, {name: '二室', bedroom: 1}, {name: '三室', bedroom: 2}, {name: '四室', bedroom: 3}, {name: '五室', bedroom: 4}, {name: '五室以上', bedroom: 5}],
         activeIndex: '1',
         tableData: [],
         selected: '1',
         selected1: '',
         popupVisible: false,
-        value: [], // 切记单选按钮是字符串类型
-        options: [{
-          label: '一室',
-          value: 'A'
-        },
-        {
-          label: '二室',
-          value: 'B'
-        },
-        {
-          label: '三室',
-          value: 'C'
-        },
-        {
-          label: '四室',
-          value: 'D'
-        },
-        {
-          label: '五室',
-          value: 'E'
-        },
-        {
-          label: '五室以上',
-          value: 'F'
-        }]
+        style1: {textAlign: 'center', backgroundColor: 'darkviolet'}
       }
     },
     created () {
@@ -187,7 +149,7 @@
     methods: {
       getData () {
         var self = this
-        usedLists({page_num: 1, page_size: 30}).then(function (res) {
+        usedLists({ page_num: 1, page_size: 30, r_id: this.r_id, bedroom: this.bedroom, total_price: this.total_price }).then(function (res) {
           console.log(res)
           if (res.data && res.data.code === 200) {
             self.tableData = res.data.data
@@ -213,88 +175,31 @@
       areafour () {
         this.popupVisible = true
         this.selected = '4'
-      },
-      check () {
-        console.log(this.value)
       }
+      /* change () {
+        if(this.wlie2==)
+        this.isStyle2 = !this.isStyle2
+      } */
     }
   }
 </script>
 <style scoped>
   @import "lbstyle.less";
+  /*区域，价格*/
   .mint-tab-container .mint-tab-container-wrap .mint-tab-container-item .w{
     width: 100%;
     line-height: 40px;
     border-bottom: 1px solid rgb(233,233,233);
     text-align: left;
   }
-  .mint-tab-container .mint-tab-container-wrap .mint-tab-container-item .w span{
-    margin-left: 20px;
-    font-size: 15px;
+isselect{
+  background-color:  rgb(95,25,134);
+}
+  .style2{
+    background-color:rgb(95,25,134) ;
   }
-
 </style>
 <style>
-  .mint-tab-container .mint-tab-container-wrap .mint-tab-container-item div[data-v-37b24f22].c{
-    text-align: left;
-    padding: 10px 0 0 20px;
-    line-height: 40px;
-    font-size: 16px;
-    border-bottom: 1px solid rgb(233,233,233) ;
-  }
-  /*菜单导航*/
-  .mint-tab-item-label span{
-    font-size: 16px;
-  }
-  .mint-navbar .mint-tab-item.is-selected .mint-tab-item-label span{
-    color: rgb(95,25,134);
-  }
-  /*房型*/
-  .mint-checklist-label .mint-checkbox-label{
-    float: left;
-  }
-  .mint-cell{
-    border-bottom:1px solid rgb(233,233,233) ;
-  }
-  .direct{
-    height: 415px;
-    overflow-y: auto;
-  }
-  .direct .direct-li{
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid rgb(233,233,233);
-  }
-  .direct .direct-li>label{
-    font-size: 14px;
-  }
-  .mint-tab-container .mint-tab-container-wrap .mint-tab-container-item div[data-v-37b24f22]{
-    line-height: 20px;
-    border: none;
-  }
-
-  .el-checkbox-button{
-    margin:10px;
-    border: 1px solid rgb(95,25,134);
-    border-radius: 5px;
-    line-height: 10px;
-  }
-   .el-checkbox-button.is-checked .el-checkbox-button__inner{
-    line-height: 5px;
-    background-color: rebeccapurple;
-     border: none;
-     box-shadow:0 0 0 rgb(95,25,134);
-  }
-  .el-checkbox-button__inner:hover{
-    color: rgb(95,25,134);
-  }
-  .el-checkbox-button__inner{
-    height: 10px;
-    line-height: 5px;
-    border: none;
-    outline: 1px solid rgb(95,25,134);
-    border-radius: 5px;
-    font-size: 12px;
-  }
+  @import "lbstyle.less";
 </style>
 
