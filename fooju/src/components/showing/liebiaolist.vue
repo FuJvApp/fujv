@@ -51,7 +51,7 @@
           </mt-tab-container-item>
           <mt-tab-container-item id='3'>
             <div class="w"><span>不限</span></div>
-            <div class="w" v-for="liuni in wlie2" :key="wlie2"><span>{{liuni.name}}</span> <aside>√</aside></div>
+            <div class="w" v-for="liuni in wlie2" :key="wlie2" @click="change"><span>{{liuni.name}}</span> <aside :class="{style2:isStyle2}">√</aside></div>
             <div class="w" :style="style1"><span style="margin: 0">确认</span></div>
           </mt-tab-container-item>
           <mt-tab-container-item id='4'>
@@ -119,6 +119,7 @@
   export default{
     data () {
       return {
+        isStyle2: false,
         dir: [],
         direct0: ['东', '南', '西', '北'],
         direct1: ['50以下', '50-70', '70-90', '90-110', '110-130', '130-150', '150-200', '200以上'],
@@ -174,10 +175,11 @@
       areafour () {
         this.popupVisible = true
         this.selected = '4'
-      },
-      check () {
-        console.log(this.value)
       }
+      /* change () {
+        if(this.wlie2==)
+        this.isStyle2 = !this.isStyle2
+      } */
     }
   }
 </script>
@@ -193,7 +195,9 @@
 isselect{
   background-color:  rgb(95,25,134);
 }
-
+  .style2{
+    background-color:rgb(95,25,134) ;
+  }
 </style>
 <style>
   @import "lbstyle.less";
