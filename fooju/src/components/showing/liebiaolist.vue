@@ -44,7 +44,7 @@
       <transition class="fade">
         <mt-tab-container v-model="selected">
           <mt-tab-container-item id="1">
-            <div class="w" v-for="liuni in wlie" :key="wlie"><span>{{liuni.name}}</span></div>
+            <div class="w" v-for="liuni in wlie" :key="wlie" @click="changer_id(liuni.r_id)"><span>{{liuni.name}}</span></div>
           </mt-tab-container-item>
           <mt-tab-container-item id='2'>
             <div class="w" v-for="liuni in wlie1" :key="wlie1"><span>{{liuni.name}}</span></div>
@@ -52,7 +52,7 @@
           <mt-tab-container-item id='3'>
             <div class="w"><span>不限</span></div>
             <div class="w" v-for="liuni in wlie2" :key="wlie2" @click="change(liuni.bedroom)"><span>{{liuni.name}}</span> <aside :class="bdmIndex.indexOf(liuni.bedroom) !== -1 ? 'style2':''">√</aside></div>
-            <div class="w" :style="style1"><span style="margin: 0">确认</span></div>
+            <div class="w" :style="style1" @click="submitOne"><span style="margin: 0">确认</span></div>
           </mt-tab-container-item>
           <mt-tab-container-item id='4'>
             <ul class="direct" >
@@ -192,6 +192,10 @@
         this.popupVisible = true
         this.selected = '3'
       },
+      areafour () {
+        this.popupVisible = true
+        this.selected = '4'
+      },
       change (id) {
         var self = this
         if (Array.isArray(self.bdmIndex) && self.bdmIndex.indexOf(id) === -1) {
@@ -201,6 +205,14 @@
           self.bdmIndex.splice(self.bdmIndex.indexOf(id), 1)
           // splice表示删除第几个开始的某些项
         }
+      },
+      changer_id (id) {
+        this.r_id = id
+        this.getData()
+        this.popupVisible = false
+      },
+      submitOne () {
+        this.getData()
       }
     }
   }
