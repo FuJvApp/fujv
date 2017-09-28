@@ -117,9 +117,29 @@
           <span>热门推荐</span>
           <a href="">更多二手房 ></a>
         </p>
-        <ul>
-          <li>二手房</li>
-        </ul>
+        <mt-navbar v-model="selected">
+          <mt-tab-item name="first" id="1">option A</mt-tab-item>
+          <mt-tab-item id="2">option B</mt-tab-item>
+          <mt-tab-item id="3">option C</mt-tab-item>
+        </mt-navbar>
+        <mt-tab-container  v-model="selected">
+          <mt-tab-container-item name="first" id="1">
+            <ul class="content">
+              <li v-for="data in tableData">
+                <a class="pic" href="" ><img :src="'http://www.fooju.cn/'+data.pic" alt=""></a>
+                <a class="info" href="">
+                  <p>{{data.title}}</p>
+                  <p>{{data.bedroom}}室{{data.livingroom}}厅{{data.wc}}卫/{{data.built_area}}m²/{{data.direction}}</p>
+                  <p><span>{{data.total_price}}万 </span> {{data.unit_price}}元/㎡</p>
+                </a>
+              </li>
+            </ul>
+          </mt-tab-container-item>
+          <mt-tab-container-item id="2">
+          </mt-tab-container-item>
+          <mt-tab-container-item id="3">
+          </mt-tab-container-item>
+        </mt-tab-container>
       </section>
       <section class="footerlink">
         <p style="border-bottom: 1px solid #3e403f;">友情链接</p>
@@ -137,11 +157,33 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import {usedLists} from '../../api/config'
   import { Swipe, SwipeItem } from 'mint-ui'
   export default {
     components: {
       SwipeItem,
       Swipe
+    },
+    data () {
+      return {
+        page_num: 1,
+        page_size: 5,
+        tableData: [],
+        selected: '1'
+      }
+    },
+    created () {
+      this.getData()
+    },
+    methods: {
+      getData () {
+        var self = this
+        usedLists({page_num: this.page_num, page_size: this.page_size}).then(function (res) {
+          if (res.data && res.data.code === 200) {
+            self.tableData = res.data.data
+          }
+        })
+      }
     }
   }
 </script>

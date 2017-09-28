@@ -1,0 +1,166 @@
+.rent .sort{
+  position: fixed;
+  width: .85rem;
+  height: .3rem;
+  line-height: .3rem;
+  background-color: #4d4d4d;
+  border-radius: .3rem;
+  color: #fff;
+  top: 50%;
+  right: .2rem;
+  font-weight: bold;
+  transform: translateY(-50%);
+}
+.rent .sort .iconfont{
+  color: #fff;
+}
+.rent .tab-space{
+  height: .44rem;
+  background-color: #eeeeee;
+}
+.rent .zu-tab{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  height: .44rem;
+  border-bottom: 1px solid #eeeeee;
+  background-color: #fff;
+}
+.rent .zu-tab.fixed-tab{
+  position: fixed;
+  top: .44rem;
+  z-index: 888;
+  left: 0;
+}
+.rent .zu-tab.tab-fixed{
+  position: fixed;
+  top: 0;
+  z-index: 33333;
+  left: 0;
+}
+.rent section{
+  padding-top: .44rem;
+}
+.rent .mint-swipe{
+  width: 100%;
+  min-height: 2.22rem;
+}
+.rent .mint-swipe-items-wrap{
+  min-height: 2.22rem;
+  width: 100%;
+}
+.rent .mint-swipe-items-wrap img{
+  height: 100%;
+  width: 100%;
+}
+.rent .mint-swipe-indicator{
+  width: .1rem;
+  height: .03rem;
+  border-radius: 0;
+}
+.rent .mint-swipe-indicator.is-active{
+  background-color: #ffffff;
+  opacity: 1;
+}
+.rent .mint-header{
+  height: .44rem;
+  align-items: center;
+  padding: 0 .15rem;
+}
+.rent header{
+  background-color: rgba(255,255,255,0.5);
+}
+.rent .mint-header-title{
+  flex: 0;
+}
+.rent .mint-header-button{
+  flex: 0 0;
+}
+.rent .is-left{
+  flex: 1;
+  height: 100%;
+}
+.rent .is-left>div{
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.rent .input{
+  background-color: #fff;
+  flex: 1;
+  height: .3rem;
+  margin: 0 .1rem;
+  line-height: .3rem;
+  border-radius: .15rem;
+  overflow: hidden;
+  padding: 0 .1rem;
+  font-size: 0;
+  display: flex;
+  align-items: center;
+}
+.rent .input input{
+  flex: 1;
+  line-height: .3rem;
+}
+.rent .zu-lists{
+  padding-left: .15rem;
+}
+.rent .zu-lists li{
+  padding: .15rem 0;
+  border-bottom: 1px solid #eeeeee;
+}
+.rent .zu-lists dl{
+  display: flex;
+}
+.rent .zu-lists dl dt{
+  width: 1.2rem;
+  height: .9rem;
+}
+.rent .zu-lists dl dt img{
+  width: 100%;
+  height: 100%;
+}
+.rent .zu-lists dl dd{
+  flex: 1;
+  text-align: left;
+  padding-left: .15rem;
+}
+.rent .zu-lists dl dd span{
+  display: block;
+  margin-top: .1rem;
+  color: #999999;
+  font-size: .13rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+}
+.rent .zu-lists dl dd p{
+  color: #ff0000;
+  margin-top: .1rem;
+  font-weight: bold;
+}
+.rent .load{
+  text-align: center;
+  width: 100%;
+  height: .4rem;
+  line-height: .4rem;
+  color: #7d31ff;
+}
+.rent .load span{
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .1rem;
+}
+.rent .mint-actionsheet .mint-actionsheet-listitem{
+  font-size: .16rem;
+  height: .61rem;
+  line-height: .61rem;
+}
+.rent .mint-popup{
+  width: 100%;
+}
+.rent .tab-content{
+  padding-top: .44rem;
+  width: 100%;
+}

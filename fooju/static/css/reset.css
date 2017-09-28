@@ -1,4 +1,23 @@
-html, body, div, span, applet, object, iframe,
+@media screen and (min-width: 319px){
+  body, html{
+    font-size: 85.06667px;
+  }
+}
+@media screen and (min-width: 375px){
+  body, html{
+    font-size: 100px;
+  }
+}
+@media screen and (min-width: 413px){
+  body, html{
+    font-size: 110.13333px;
+  }
+}
+html, body{
+  padding: 0;
+  margin: 0;
+}
+div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -16,7 +35,6 @@ time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 20px;
     font: inherit;
     vertical-align: baseline;
 }
@@ -26,7 +44,8 @@ footer, header, hgroup, menu, nav, section {
     display: block;
 }
 body {
-    line-height: 1;
+  line-height: 1;
+  font-size: 0.14rem;
 }
 ol, ul {
     list-style: none;
@@ -44,3 +63,7 @@ table {
     border-spacing: 0;
 }
 a{text-decoration: none}
+input{
+  outline: none;
+  border: none;
+}
