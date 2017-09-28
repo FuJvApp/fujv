@@ -12,7 +12,7 @@
       </mt-header>
       <section>
         <mt-swipe :auto="1000*(ad_list.length*2+1) " :speed="1000">
-          <mt-swipe-item v-for="item in ad_list">
+          <mt-swipe-item v-for="item in ad_list" :key="ad_list">
             <img :src="'http://www.fooju.cn/'+item.picurl" alt="">
           </mt-swipe-item>
         </mt-swipe>
@@ -24,7 +24,7 @@
                   {{item.name}}
                   <i slot="icon" class="iconfont icon-xia"></i>
                 </template>
-                <el-menu-item v-for="child in item.child">
+                <el-menu-item v-for="child in item.child" :key="item.child">
 
                 </el-menu-item>
               </el-submenu>
