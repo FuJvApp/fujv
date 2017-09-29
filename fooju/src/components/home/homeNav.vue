@@ -34,7 +34,7 @@
     width: 100%;
     display: flex;
     border-top: 1px solid #cccccc;
-    padding: .1px 0;
+    padding: .1rem 0;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -47,11 +47,11 @@
       display: flex;
       border-top: 1px solid #cccccc;
       background: white;
-      padding: .01rem 0;
+      padding: .01rem .01rem;
       position: fixed;
       bottom: 0;
       left: 0;
     }
     footer a{flex: 1}
-    footer .iconfont{font-size: .2rem;font-weight: bold;}
+    footer .iconfont{font-size: .2rem;padding: .01rem;font-weight: bold;}
 </style>

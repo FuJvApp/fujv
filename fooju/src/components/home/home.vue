@@ -105,11 +105,11 @@
           <a href="">更多 ></a>
         </p>
         <ul class="fojvbknav">
-          <li><a href=""><img src="../../assets/home-icon/ershou.png" alt=""><span>二手房</span></a></li>
-          <li><a href=""><img src="../../assets/home-icon/xinfang.png" alt=""><span>新房</span></a></li>
-          <li><a href=""><img src="../../assets/home-icon/goufang.png" alt=""><span style="left: 1rem">购房宝典</span></a></li>
-          <li><a href=""><img src="../../assets/home-icon/zufangbk.png" alt=""><span>租房</span></a></li>
-          <li><a href=""><img src="../../assets/home-icon/huanfang.png" alt=""><span>换房</span></a></li>
+          <li><a href="#/baike"><img src="../../assets/home-icon/ershou.png" alt=""><span>二手房</span></a></li>
+          <li><a href="#/bknew"><img src="../../assets/home-icon/xinfang.png" alt=""><span>新房</span></a></li>
+          <li><a href="#/bkshow"><img src="../../assets/home-icon/goufang.png" alt=""><span style="left: 1rem">购房宝典</span></a></li>
+          <li><a href="#/bkzu"><img src="../../assets/home-icon/zufangbk.png" alt=""><span>租房</span></a></li>
+          <li><a href="#/bkhuan"><img src="../../assets/home-icon/huanfang.png" alt=""><span>换房</span></a></li>
         </ul>
       </section>
       <section class="hot">

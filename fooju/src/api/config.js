@@ -23,3 +23,11 @@ export const newlist = params => {
 export const villagefind = params => {
   return axios.get(api.VillageFind, {params: params})
 }
+// 百科侧边分类
+export const EncyTypeList = params => {
+  return axios.get(api.EncyTypeList, {params: params})
+}
+// 百科文字标题
+export const EncyList = params => {
+  return axios.get(api.EncyList, {params: params})
+}
