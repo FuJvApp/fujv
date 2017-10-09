@@ -15,6 +15,18 @@ export const retalLists = params => {
 export const adLists = params => {
   return axios.get(api.adLists, {params: params})
 }
+// 区域列表
+export const RegionLists = () => {
+  return axios.get(api.RegionLists)
+}
+// 租房房源信息
+export const RtalDetail = params => {
+  return axios.get(api.RtalDetail, {params: params})
+}
+// 更多房屋类型选项
+export const BasicsDrop = params => {
+  return axios.get(api.BasicsDrop, {params: params})
+}
 // 新房列表
 export const newlist = params => {
   return axios.get(api.NewList, {params: params})

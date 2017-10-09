@@ -20,6 +20,8 @@ import zuhome from '../components/home/zuhome/zuhome.vue'
 import homesearch from '../components/home/online/HomeSearch.vue'
 import myowner from '../components/home/online/MyOwner.vue'
 import twoSearch from '../components/home/zuhome/twoSearch.vue'
+import rentMsg from '../components/home/zuhome/rentMsg.vue'
+import zuMap from '../components/home/zuhome/zuMap.vue'
 Vue.use(Router)
 
 import sousuo from '../components/home/newhome/sousuo.vue'
@@ -100,6 +102,14 @@ export default new Router({
     {
       path: '/twoSearch',
       component: twoSearch
+    },
+    {
+      path: '/rentMsg',
+      component: rentMsg
+    },
+    {
+      path: '/zuMap',
+      component: zuMap
     },
     {
       path: '/HomeSearch',
