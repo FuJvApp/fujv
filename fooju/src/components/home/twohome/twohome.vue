@@ -23,7 +23,7 @@
       <li @click="handleClick4">类型 <i class="iconfont icon-jiantouxia"></i></li>
     </ul>
     <el-dialog v-model="popupVisible">
-      <tabs></tabs>
+      <tabs @area="submints" @price="submits2" @bed="submits3" :va="va" :total_price="total_price" :rid="rid"></tabs>
     </el-dialog>
       <ul
           class="content"
@@ -53,6 +53,7 @@
     data () {
       return {
         popupVisible: false,
+        rid: '',
         page_num: 1,
         page_size: 5,
         tableData: [],
@@ -79,7 +80,13 @@
       },
       getData () {
         var self = this
-        usedLists({page_num: this.page_num, page_size: this.page_size}).then(function (res) {
+        usedLists({
+          page_num: this.page_num,
+          page_size: this.page_size,
+          r_id: this.r_id,
+          total_price: this.total_price,
+          bedroom: this.bedroom
+        }).then(function (res) {
           if (res.data && res.data.code === 200) {
             self.tableData = res.data.data
           }
@@ -92,6 +99,21 @@
           this.page_size += 5
           this.loading = false
         }, 2500)
+      },
+      submints: function (data) {
+        this.r_id = data
+        this.getData()
+      },
+      submits2: function (data) {
+        this.total_price = data
+        this.getData()
+      },
+      submits3: function (data) {
+        for (let i = 0; i < data.length; i++) {
+          this.bedroom = data[i]
+        }
+        console.log(this.bedroom)
+        this.getData()
       }
     }
   }

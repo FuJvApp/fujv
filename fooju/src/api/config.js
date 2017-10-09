@@ -31,3 +31,7 @@ export const EncyTypeList = params => {
 export const EncyList = params => {
   return axios.get(api.EncyList, {params: params})
 }
+// 区域接口
+export const RegionLists = params => {
+  return axios.get(api.RegionLists, {params: params})
+}
