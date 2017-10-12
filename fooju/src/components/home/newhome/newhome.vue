@@ -11,7 +11,6 @@
           </div>
         </router-link>
         <router-link to="/ditu">
-        <router-link :to="{path: '/maphome', query: {types: this.types}}">
           <i class="iconfont icon-dizhi"></i>
         </router-link>
       </header>

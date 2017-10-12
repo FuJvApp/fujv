@@ -123,7 +123,7 @@
           <mt-tab-item id="3">option C</mt-tab-item>
         </mt-navbar>
         <mt-tab-container  v-model="selected">
-          <mt-tab-container-item name="first" id="1">
+          <mt-tab-container-item name="first" id=" 1">
             <ul class="content">
               <li v-for="data in tableData">
                 <a class="pic" href="" ><img :src="'http://www.fooju.cn/'+data.pic" alt=""></a>
@@ -135,9 +135,9 @@
               </li>
             </ul>
           </mt-tab-container-item>
-          <mt-tab-container-item id="2">
+          <mt-tab-container-item id=" 2">
           </mt-tab-container-item>
-          <mt-tab-container-item id="3">
+          <mt-tab-container-item id=" 3">
           </mt-tab-container-item>
         </mt-tab-container>
       </section>
@@ -159,55 +159,16 @@
 <script type="text/ecmascript-6">
   import {Swipe, SwipeItem} from 'mint-ui'
   import {usedLists} from '../../api/config'
-  import { Swipe, SwipeItem } from 'mint-ui'
   export default {
     components: {
       SwipeItem,
       Swipe
-    }
-  }
-</script>
-
-<style lang="less" scoped>
-  .home{
-    background: rgb(235,235,235);
-  }
-  .swipe{
-    height: 24rem;
-    .swipeItem{
-      img{
-        width: 100%;
-        height:24rem;
-      }
-    }
-  }
-  .homebar{
-    background: white;
-    ul{
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-      margin-left: 1.5rem;
-      overflow: hidden;
-      width: 100%;
-      height: 100%;
-      li{
-        float: left;
-        width: 8rem;
-      img{
-        width: 3rem;
-        height: 3rem;
-        }
-      span{
-        margin-top: 1rem;
-        display: block;
-        }
     },
     data () {
       return {
         page_num: 1,
         page_size: 5,
         tableData: [],
-        selected: '1',
         selected: '1',
         types: 1
       }
@@ -231,3 +192,4 @@
 <style lang="less" scoped>
   @import "home.less";
 </style>
+

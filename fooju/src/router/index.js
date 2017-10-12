@@ -41,8 +41,6 @@ import bkshow from '../components/home/fojvbk/bkshow.vue'
 import bkzu from '../components/home/fojvbk/bkzu.vue'
 import bktwo from '../components/home/fojvbk/bktwo.vue'
 import bkhuan from '../components/home/fojvbk/bkhuan.vue'
-Vue.use(Router)
-
 import sousuo from '../components/home/newhome/sousuo.vue'
 import ditu from '../components/home/newhome/ditu.vue'
 Vue.use(Router)

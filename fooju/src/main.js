@@ -9,7 +9,7 @@ import router from './router/index'
 import store from './store/store'
 import mintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
-import './style/reset.css'
+import '../static/css/reset.css'
 import './font/iconfont.css'
 import './font2/iconfont.css'
 import './fontwqn/iconfont.css'
@@ -29,6 +29,7 @@ Vue.use(myPlugins)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  router,
   store,
   template: '<App/>',
   components: { App }
