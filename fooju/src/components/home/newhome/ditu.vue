@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="map">
       <header>
         <a href="#newhome" class="huanhui">
           <i class="el-icon-arrow-left"></i>
@@ -65,7 +65,7 @@
         for (var i = 0; i < self.mapdata.length; i++) {
 //          console.log(self.mapdata[i].log)
           var point = new BMap.Point(self.mapdata[i].log, self.mapdata[i].lat)
-          map.centerAndZoom(point, 15)
+          map.centerAndZoom(point, 12)
           var pots = {
             position: point,
             offset: new BMap.Size(-15, -55)
@@ -171,6 +171,9 @@
         width: 200px;
       }
     }
+  }
+  .map{
+    height: 100%;
   }
   .baiduMap{
     width: 100%;
