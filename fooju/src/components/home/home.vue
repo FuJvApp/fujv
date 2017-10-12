@@ -137,7 +137,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { Swipe, SwipeItem } from 'mint-ui'
+  import {Swipe, SwipeItem} from 'mint-ui'
   export default {
     components: {
       SwipeItem,
@@ -151,13 +151,8 @@
     background: rgb(235,235,235);
   }
   .swipe{
-    width: 100%;
     height: 24rem;
-    margin: 0 auto;
-    overflow: hidden;
     .swipeItem{
-      width: 100%;
-      float: left;
       img{
         width: 100%;
         height:24rem;

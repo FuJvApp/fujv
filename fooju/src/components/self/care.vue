@@ -1,13 +1,12 @@
 <template>
-    <div></div>
+    <div>
+      care
+    </div>
 </template>
 
-
 <script>
-  export default{}
+    export default{}
 </script>
 
-
-<style>
-
+<style lang="less">
 </style>

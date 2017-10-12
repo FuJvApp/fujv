@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import homeNav from '../components/home/homeNav.vue'
 import home from '../components/home/home.vue'
+import homeindex from '../components/home/homeindex.vue'
 import tool from '../components/tool/tool.vue'
 import showing from '../components/showing/showing.vue'
 import Date from '../components/showing/date1.vue'
@@ -9,6 +10,18 @@ import jilu from '../components/showing/date2.vue'
 import biaolist from '../components/showing/liebiaolist.vue'
 import searchOne from '../components/showing/searchOne.vue'
 import self from '../components/self/self.vue'
+import login from '../components/self/login.vue'
+import register from '../components/self/register.vue'
+import register2 from '../components/self/register2.vue'
+import password from '../components/self/password.vue'
+import password2 from '../components/self/password2.vue'
+import care from '../components/self/care.vue'
+import agent from '../components/self/agent.vue'
+import mysession from '../components/self/mysession.vue'
+import watchrecord from '../components/self/watchrecord.vue'
+import watchplan from '../components/self/watchplan.vue'
+import toolcompute from '../components/self/toolcompute.vue'
+import userback from '../components/self/userback.vue'
 import twohome from '../components/home/twohome/twohome.vue'
 import foundhome from '../components/home/foundhome/foundhome.vue'
 import maphome from '../components/home/maphome/maphome.vue'
@@ -20,6 +33,7 @@ import zuhome from '../components/home/zuhome/zuhome.vue'
 import homesearch from '../components/home/online/HomeSearch.vue'
 import myowner from '../components/home/online/MyOwner.vue'
 import sousuo from '../components/home/newhome/sousuo.vue'
+import ditu from '../components/home/newhome/ditu.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -30,6 +44,10 @@ export default new Router({
       children: [
         {path: '/', component: home},
         {path: '/home', component: home},
+        {
+          path: '/homeindex',
+          component: homeindex
+        },
         {
           path: '/tool',
           component: tool
@@ -58,9 +76,63 @@ export default new Router({
         }
       ]
     },
+    // 我的
+    {
+      path: '/login',
+      component: login
+    },
+    {
+      path: '/register',
+      component: register
+    },
+    {
+      path: '/password',
+      component: password
+    },
+    {
+      path: '/password2',
+      component: password2
+    },
+    {
+      path: '/register2',
+      component: register2
+    },
+    {
+      path: '/care',
+      component: care
+    },
+    {
+      path: '/mysession',
+      component: mysession
+    },
+    {
+      path: '/agent',
+      component: agent
+    },
+    {
+      path: '/watchrecord',
+      component: watchrecord
+    },
+    {
+      path: '/watchplan',
+      component: watchplan
+    },
+    {
+      path: '/toolcompute',
+      component: toolcompute
+    },
+    {
+      path: '/userback',
+      component: userback
+    },
+    // 新房
     {
       path: '/sousuo',
       component: sousuo
+    },
+    {
+      path: '/ditu',
+      component: ditu
     },
     {
       path: '/twohome',

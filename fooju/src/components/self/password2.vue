@@ -4,7 +4,7 @@
       <router-link to="/self" class="back">
         <i class="el-icon-arrow-left"></i>
       </router-link>
-      <span>用户注册</span>
+      <span>修改密码</span>
     </header>
     <main>
       <div>
@@ -28,7 +28,7 @@
 
 <script>
   import { Toast } from 'mint-ui'
-  import {register} from '../../api/config'
+  import {forget} from '../../api/config'
   import md5 from 'js-md5'
   export default{
     data () {
@@ -44,12 +44,12 @@
     },
     methods: {
       next () {
-        var self = this
         this.value = this.$route.query.phone
+        var self = this
         if (self.psd2 === '') {
           Toast('请输入密码！')
         } else {
-          register({mobile: self.value, verify: md5(self.psd2)}).then(function (res) {
+          forget({mobile: self.value, verify: md5(self.psd2)}).then(function (res) {
             Toast(res.data.msg)
             if (res.data.code === 200) {
               self.$router.push('login')
