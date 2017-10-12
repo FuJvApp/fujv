@@ -105,11 +105,11 @@
           <a href="">更多 ></a>
         </p>
         <ul class="fojvbknav">
-          <li><a href=""><img src="../../assets/home-icon/ershou.png" alt=""><span>二手房</span></a></li>
-          <li><a href=""><img src="../../assets/home-icon/xinfang.png" alt=""><span>新房</span></a></li>
-          <li><a href=""><img src="../../assets/home-icon/goufang.png" alt=""><span style="left: 1rem">购房宝典</span></a></li>
-          <li><a href=""><img src="../../assets/home-icon/zufangbk.png" alt=""><span>租房</span></a></li>
-          <li><a href=""><img src="../../assets/home-icon/huanfang.png" alt=""><span>换房</span></a></li>
+          <li><a href="#/baike"><img src="../../assets/home-icon/ershou.png" alt=""><span>二手房</span></a></li>
+          <li><a href="#/bknew"><img src="../../assets/home-icon/xinfang.png" alt=""><span>新房</span></a></li>
+          <li><a href="#/bkshow"><img src="../../assets/home-icon/goufang.png" alt=""><span style="left: 1rem">购房宝典</span></a></li>
+          <li><a href="#/bkzu"><img src="../../assets/home-icon/zufangbk.png" alt=""><span>租房</span></a></li>
+          <li><a href="#/bkhuan"><img src="../../assets/home-icon/huanfang.png" alt=""><span>换房</span></a></li>
         </ul>
       </section>
       <section class="hot">
@@ -117,9 +117,29 @@
           <span>热门推荐</span>
           <a href="">更多二手房 ></a>
         </p>
-        <ul>
-          <li>二手房</li>
-        </ul>
+        <mt-navbar v-model="selected">
+          <mt-tab-item name="first" id="1">option A</mt-tab-item>
+          <mt-tab-item id="2">option B</mt-tab-item>
+          <mt-tab-item id="3">option C</mt-tab-item>
+        </mt-navbar>
+        <mt-tab-container  v-model="selected">
+          <mt-tab-container-item name="first" id="1">
+            <ul class="content">
+              <li v-for="data in tableData">
+                <a class="pic" href="" ><img :src="'http://www.fooju.cn/'+data.pic" alt=""></a>
+                <a class="info" href="">
+                  <p>{{data.title}}</p>
+                  <p>{{data.bedroom}}室{{data.livingroom}}厅{{data.wc}}卫/{{data.built_area}}m²/{{data.direction}}</p>
+                  <p><span>{{data.total_price}}万 </span> {{data.unit_price}}元/㎡</p>
+                </a>
+              </li>
+            </ul>
+          </mt-tab-container-item>
+          <mt-tab-container-item id="2">
+          </mt-tab-container-item>
+          <mt-tab-container-item id="3">
+          </mt-tab-container-item>
+        </mt-tab-container>
       </section>
       <section class="footerlink">
         <p style="border-bottom: 1px solid #3e403f;">友情链接</p>
@@ -137,11 +157,17 @@
 </template>
 
 <script type="text/ecmascript-6">
+<<<<<<< HEAD
   import {Swipe, SwipeItem} from 'mint-ui'
+=======
+  import {usedLists} from '../../api/config'
+  import { Swipe, SwipeItem } from 'mint-ui'
+>>>>>>> 6ac0fee710437db38cfe4b5478c7d65f342a7478
   export default {
     components: {
       SwipeItem,
       Swipe
+<<<<<<< HEAD
     }
   }
 </script>
@@ -179,186 +205,33 @@
         margin-top: 1rem;
         display: block;
         }
+=======
+    },
+    data () {
+      return {
+        page_num: 1,
+        page_size: 5,
+        tableData: [],
+        selected: '1'
+>>>>>>> 6ac0fee710437db38cfe4b5478c7d65f342a7478
+      }
+    },
+    created () {
+      this.getData()
+    },
+    methods: {
+      getData () {
+        var self = this
+        usedLists({page_num: this.page_num, page_size: this.page_size}).then(function (res) {
+          if (res.data && res.data.code === 200) {
+            self.tableData = res.data.data
+          }
+        })
       }
     }
   }
+</script>
 
-  .fojvheader{
-    margin-top: 1rem;
-    padding: .5rem;
-    background: white;
-    width: 100%;
-    height: 4.3rem;
-    img{
-      width: 3rem;
-      margin-top: .5rem;
-      height: 100%;
-      float: left;
-      margin-left: 3rem;
-    }
-    .line{
-      height: 100%;
-      border: 1px solid #e0e0e0;
-      float: left;
-      margin-left: 2rem;
-    }
-    .fojvnews{
-      margin-left: 10rem;
-      width: 20rem;
-      .headernews{
-        width: 19rem;
-        height: 2rem;
-        text-align: left;
-        line-height: 2rem;
-        .item-type{
-          color: #d1616a;
-          background-color: #f9e6e9;
-          font-size: 1.1rem;
-          padding: 0 0.5rem;
-          border-radius: 0.4rem;
-        }
-        .item-content{
-          font-size: 1.3rem;
-          padding: 0 1rem;
-        }
-      }
-    }
-  }
-  .fojvactive{
-    margin-top: 1rem;
-    padding: .5rem;
-    background: white;
-    height: 100%;
-    width: 100%;
-    .activeheader{
-      width: 100%;
-      height: 3rem;
-      span{
-        font-size: 2rem;
-        float: left;
-        margin: .5rem 0 0 1.5rem;
-      }
-      a{
-        float: right;
-        font-size: 1.2rem;
-        margin-top: 1rem;
-        margin-right: 1.5rem;
-        color: #999;
-      }
-    }
-    .activeswipe{
-      height: 26.1rem;
-      margin: 1rem 1.5rem 1.5rem 1.5rem;
-      overflow: hidden;
-      .activeitem{
-        width: 100%;
-        height: 100%;
-        img{
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
-  }
-  .fojvbk{
-    width: 100%;
-    padding: .5rem;
-    height: 10rem;
-    background: white;
-    overflow: hidden;
-    position: relative;
-    margin: 1rem auto 1rem auto;
-    .activeheader{
-      width: 100%;
-      height: 2rem;
-      span{
-        font-size: 2rem;
-        float: left;
-        margin: .5rem 0 0 1.5rem;
-      }
-      a{
-        float: right;
-        font-size: 1.2rem;
-        margin-top: 1rem;
-        margin-right: 1.5rem;
-        color: #999;
-      }
-    }
-  }
-  .fojvbknav {
-    margin-top: 1rem;
-    position: absolute;
-    width:100%;
-  li{
-    float: left;
-    padding: .5rem;
-    width: 5.7rem;
-  }
-    img{
-      width: 5.5rem;
-      height:5.5rem;
-    }
-    span{
-      display: block;
-      color: white;
-      margin-top: -3.2rem;
-    }
-  }
-  .hot{
-    width: 100%;
-    background: white;
-    height: 100%;
-    margin: 1rem 0 3rem 0;
-  .activeheader{
-    width: 100%;
-    height: 1.5rem;
-  span{
-    font-size: 2rem;
-    float: left;
-    margin: .5rem 0 0 1.5rem;
-  }
-  a{
-    float: right;
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    margin-right: 1.5rem;
-    color: #999;
-  }
-  }
-  }
-  .footerlink{
-    width: 100%;
-    height: 100%;
-    border: 1px solid #2f3130;
-    position: relative;
-    margin: 2rem auto 4.4rem auto;
-    background: #2f3130;
-    p{
-      height: 1.5rem;
-      padding: .5rem;
-      line-height: 1.5rem;
-      font-size: 1.3rem;
-      text-align: left;
-      color: #727373;
-    }
-    ul{
-      height: 3rem;
-    }
-    li{
-      margin: 1rem ;
-      font-size: 1.3rem;
-      color: #727373;
-      float: left;
-    }
-    .footerlink-right{
-      p{
-        text-align: right;
-        font-size: 1.3rem;
-      }
-    }
-  }
-
-
-  footer{width: 100%; display: flex; border-top: 1px solid #cccccc;padding: 10px 0;position: fixed;bottom: 0;  }
-  footer a{flex: 1}
+<style lang="less" scoped>
+  @import "home.less";
 </style>

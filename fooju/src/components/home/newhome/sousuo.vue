@@ -10,7 +10,11 @@
             <input type="text" placeholder="请输入楼盘进行搜索" v-model="value" @input="getdata" @keydown="" id="inputHouseType">
           </div>
         </div>
+<<<<<<< HEAD
         <a @click.prevent="back1">取消</a>
+=======
+        <a @click="routerback">取消</a>
+>>>>>>> 6ac0fee710437db38cfe4b5478c7d65f342a7478
       </div>
       <div class="lishi">
         <div>历史搜索</div>
@@ -132,6 +136,9 @@
       sure () {
         this.lishidialog = false
         this.dialogvisible = false
+      },
+      routerback () {
+        this.$router.go(-1)
       }
     }
   }

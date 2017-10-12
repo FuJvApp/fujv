@@ -29,17 +29,29 @@
 </script>
 
 <style>
+  .router-link-active p{color: red}
+  footer{
+    width: 100%;
+    display: flex;
+    border-top: 1px solid #cccccc;
+    padding: .1rem 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  footer a{flex: 1}
+  footer .iconfont{font-size: .1rem;font-weight: bold;}
     .router-link-active p{color: red}
     footer{
       width: 100%;
       display: flex;
       border-top: 1px solid #cccccc;
       background: white;
-      padding: 10px 0;
+      padding: .01rem .01rem;
       position: fixed;
       bottom: 0;
       left: 0;
     }
     footer a{flex: 1}
-    footer .iconfont{font-size: 20px;font-weight: bold;}
+    footer .iconfont{font-size: .2rem;padding: .01rem;font-weight: bold;}
 </style>
