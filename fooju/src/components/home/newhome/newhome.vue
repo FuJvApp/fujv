@@ -7,7 +7,7 @@
         <router-link to="/sousuo">
           <img src="../../../assets/imgwqn/lookhome/sousuo.png" alt="">
         </router-link>
-        <router-link to="">
+        <router-link :to="{path: '/maphome', query: {types: this.types}}">
           <i class="iconfont icon-dizhi"></i>
         </router-link>
       </header>
@@ -51,7 +51,8 @@
       return {
         allloaded: false,
         selected: '1',
-        tableData: []
+        tableData: [],
+        types: 2
       }
     },
     components: {

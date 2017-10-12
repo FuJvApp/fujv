@@ -3,40 +3,29 @@
     <el-tabs class="tabs" type="border-card">
       <el-tab-pane class="lis">
         <span slot="label">区域 <i class="iconfont icon-jiantouxia"></i></span>
-        <li>不限</li>
-        <li>金城开发区</li>
-        <li>如意开发区</li>
-        <li>玉泉区</li>
-        <li>回民区</li>
-        <li>赛罕区</li>
-        <li>新城区</li>
+        <el-form>
+          <li>不限</li>
+          <li v-for="item in tableData" @click="submit1(item.id)">{{item.area}}</li>
+        </el-form>
       </el-tab-pane>
       <el-tab-pane class="lis">
         <span slot="label">价格 <i class="iconfont icon-jiantouxia"></i></span>
-        <li>不限</li>
-        <li>50万以下</li>
-        <li>50万-100万</li>
-        <li>100万-200万</li>
-        <li>200万-300万</li>
-        <li>300万-400万</li>
-        <li>400万-500万</li>
-        <li>500万-600万</li>
-        <li>600万-700万</li>
-        <li>700万-800万</li>
-        <li>800万-900万</li>
-        <li>900万-1000万</li>
-        <li>1000万以上</li>
+        <li v-for="item in totalPrice" @click="submit2(item.total_price)">{{item.name}}</li>
       </el-tab-pane>
       <el-tab-pane class="lis">
         <span slot="label">房型 <i class="iconfont icon-jiantouxia"></i></span>
         <li>不限</li>
-        <mt-checklist
-          align="right"
-          :options="options"
-          v-model="value"></mt-checklist>
-        <mt-button class="checklistbtn" size="large">确认</mt-button>
+        <el-checkbox-group v-model="checkList">
+          <el-checkbox label="1">一室</el-checkbox>
+          <el-checkbox label="2">二室</el-checkbox>
+          <el-checkbox label="3">三室</el-checkbox>
+          <el-checkbox label="4">四室</el-checkbox>
+          <el-checkbox label="5">五室</el-checkbox>
+          <el-checkbox label="6">五室以上</el-checkbox>
+        </el-checkbox-group>
+        <mt-button class="checklistbtn" @click="submit3(checkList)" size="large">确认</mt-button>
       </el-tab-pane>
-      <el-tab-pane class="lis">
+      <el-tab-pane class="lis" @touchmove.prevent>
         <span slot="label">更多 <i class="iconfont icon-jiantouxia"></i></span>
           <el-checkbox-group v-model="direction">
             <p>朝向</p>
@@ -83,6 +72,7 @@
 </template>
 
 <script>
+    import {RegionLists, usedLists} from '../../../api/config'
     const directions = ['东', '南', '西', '北', '南北']
     const builtAreas = ['50以下', '50-70', '70-90', '90-110', '110-130', '130-150', '150-200', '200以上']
     const labels = ['精品房源', '满五唯一']
@@ -92,8 +82,21 @@
     const diantis = ['有电梯', '无电梯']
     const types = ['平层', '复式', '跃层']
     export default{
+      props: {
+        rid: {
+          type: String
+        },
+        total_price: {
+          type: String
+        },
+        va: {
+          type: Object
+        }
+      },
       data () {
         return {
+          rid: '',
+          area: [],
           value: [],
           direction: [],
           built_area: [],
@@ -103,25 +106,18 @@
           decoration: [],
           dianti: [],
           type: [],
-          options: [{
-            label: '一室',
-            value: 'A'
-          }, {
-            label: '二室',
-            value: 'B'
-          }, {
-            label: '三室',
-            value: 'C'
-          }, {
-            label: '四室',
-            value: 'D'
-          }, {
-            label: '五室',
-            value: 'E'
-          }, {
-            label: '五室以上',
-            value: 'F'
-          }],
+          tableData: [],
+          mainData: [],
+          page_size: 5,
+          page_num: 1,
+          checkList: [],
+          totalPrice: [{name: '不限', total_price: ''}, {name: '50万以下', total_price: '1-50'},
+          {name: '50万-100万', total_price: '50-100'}, {name: '100万-200万', total_price: '100-200'},
+          {name: '200万-300万', total_price: '200-300'}, {name: '300万-400万', total_price: '300-400'},
+          {name: '400万-500万', total_price: '400-500'}, {name: '500万-600万', total_price: '500-600'},
+          {name: '600万-700万', total_price: '600-700'}, {name: '700万-800万', total_price: '700-800'},
+          {name: '800万-900万', total_price: '1'}, {name: '900万-1000万', total_price: '1'},
+          {name: '1000万以上', total_price: '1000-9999999999'}],
           directions,
           builtAreas,
           labels,
@@ -130,6 +126,44 @@
           decorations,
           diantis,
           types
+        }
+      },
+      created () {
+        this.getData()
+        this.getmain()
+      },
+      methods: {
+        getData () {
+          var self = this
+          RegionLists().then(function (res) {
+            if (res.data && res.data.code === 200) {
+              self.tableData = res.data.data
+            }
+          })
+        },
+        getmain () {
+          var self = this
+          usedLists({
+            page_num: this.page_num,
+            page_size: this.page_size
+          }).then(function (res) {
+            if (res.data && res.data.code === 200) {
+              self.mainData = res.data.data
+            }
+          })
+        },
+        submit1 (id) {
+          this.rid = id
+          this.$emit('area', this.rid)
+        },
+        submit2 (price) {
+          this.total_price = price
+          this.$emit('price', this.total_price)
+        },
+        submit3 (v) {
+          this.va = v
+          console.log(typeof (this.va))
+          this.$emit('bed', this.va)
         }
       }
     }

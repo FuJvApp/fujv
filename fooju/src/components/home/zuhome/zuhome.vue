@@ -12,7 +12,7 @@
       </mt-header>
       <section>
         <mt-swipe :auto="1000*(ad_list.length*2+1) " :speed="1000">
-          <mt-swipe-item v-for="item in ad_list">
+          <mt-swipe-item v-for="item in ad_list" :key="ad_list">
             <img :src="'http://www.fooju.cn/'+item.picurl" alt="">
           </mt-swipe-item>
         </mt-swipe>
@@ -247,6 +247,7 @@
         tabTop: '',
         tabN: -1,
         type: 1,
+        types: 3,
         houseType: 'used',
         position: 3,
         isMore: true
@@ -283,7 +284,7 @@
     },
     methods: {
       goMap () {
-        this.$router.push('/zuMap')
+        this.$router.push({path: '/maphome', query: {types: this.types}})
       },
       mLCSelect (el) {
         if (el.className !== 'isSelect') {

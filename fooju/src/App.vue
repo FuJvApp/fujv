@@ -18,5 +18,6 @@ export default {
   margin: 0;
   padding: 0;
   text-align: center;
+  height: 100%;
 }
 </style>

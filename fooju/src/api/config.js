@@ -23,7 +23,11 @@ export const RegionLists = () => {
 export const RtalDetail = params => {
   return axios.get(api.RtalDetail, {params: params})
 }
-// 更多房屋类型选项
+// 地图找房
+export const MapMapHouse = params => {
+  return axios.get(api.MapMapHouse, {params: params})
+}
+// 更多房屋类型选项BasicsDrop
 export const BasicsDrop = params => {
   return axios.get(api.BasicsDrop, {params: params})
 }
@@ -34,4 +38,12 @@ export const newlist = params => {
 // 搜索
 export const villagefind = params => {
   return axios.get(api.VillageFind, {params: params})
+}
+// 百科侧边分类
+export const EncyTypeList = params => {
+  return axios.get(api.EncyTypeList, {params: params})
+}
+// 百科文字标题
+export const EncyList = params => {
+  return axios.get(api.EncyList, {params: params})
 }

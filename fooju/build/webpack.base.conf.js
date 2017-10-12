@@ -9,6 +9,9 @@ function resolve (dir) {
 }
 
 module.exports = {
+  externals: {
+    'BMap': 'BMap'
+  },
   entry: {
     app: './src/main.js'
   },

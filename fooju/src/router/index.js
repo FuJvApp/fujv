@@ -20,8 +20,14 @@ import zuhome from '../components/home/zuhome/zuhome.vue'
 import homesearch from '../components/home/online/HomeSearch.vue'
 import myowner from '../components/home/online/MyOwner.vue'
 import twoSearch from '../components/home/zuhome/twoSearch.vue'
+import mapSearch from '../components/home/maphome/mapSearch.vue'
 import rentMsg from '../components/home/zuhome/rentMsg.vue'
-import zuMap from '../components/home/zuhome/zuMap.vue'
+import baike from '../components/home/fojvbk/baike.vue'
+import bknew from '../components/home/fojvbk/bknew.vue'
+import bkshow from '../components/home/fojvbk/bkshow.vue'
+import bkzu from '../components/home/fojvbk/bkzu.vue'
+import bktwo from '../components/home/fojvbk/bktwo.vue'
+import bkhuan from '../components/home/fojvbk/bkhuan.vue'
 Vue.use(Router)
 
 import sousuo from '../components/home/newhome/sousuo.vue'
@@ -33,7 +39,10 @@ export default new Router({
       path: '/',
       component: homeNav,
       children: [
-        {path: '/', component: home},
+        {
+          path: '/',
+          component: home
+        },
         {path: '/home', component: home},
         {
           path: '/tool',
@@ -80,6 +89,10 @@ export default new Router({
       component: maphome
     },
     {
+      path: '/mapSearch',
+      component: mapSearch
+    },
+    {
       path: '/newhome',
       component: newhome
     },
@@ -108,10 +121,6 @@ export default new Router({
       component: rentMsg
     },
     {
-      path: '/zuMap',
-      component: zuMap
-    },
-    {
       path: '/HomeSearch',
       component: homesearch
     },
@@ -126,6 +135,36 @@ export default new Router({
     {
       path: '/searchOne',
       component: searchOne
+    },
+    {
+      path: '/baike',
+      component: baike,
+      children: [
+        {
+          path: '/baike',
+          component: bktwo
+        },
+        {
+          path: '/bktwo',
+          component: bktwo
+        },
+        {
+          path: '/bknew',
+          component: bknew
+        },
+        {
+          path: '/bkshow',
+          component: bkshow
+        },
+        {
+          path: '/bkzu',
+          component: bkzu
+        },
+        {
+          path: '/bkhuan',
+          component: bkhuan
+        }
+      ]
     }
   ]
 })

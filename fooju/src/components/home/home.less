@@ -164,7 +164,7 @@
   width: 100%;
   background: white;
   height: 100%;
-  margin: .1rem 0 .3rem 0;
+  margin: .1rem 0 .1rem 0;
   .activeheader{
     width: 100%;
     height: .15rem;
@@ -180,6 +180,10 @@
       margin-right: .15rem;
       color: #999;
     }
+  }
+  .mint-tab-container{
+    height: 100%;
+    margin-top: 0;
   }
 }
 .footerlink{
@@ -213,7 +217,49 @@
     }
   }
 }
-
+.content{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  li{
+    width: 100%;
+    height: 1.1rem;
+    border-bottom: 1px solid #cccccc;
+    list-style: none;
+    img{
+      width: 38%;
+      height: 1.1rem;
+      float: left;
+    }
+    .info{
+      display: block;
+      width: 58%;
+      float: right;
+    }
+    p:nth-child(1){
+      text-align: left;
+      font-size: .16rem;
+      padding: .15rem .05rem;
+    }
+    p:nth-child(2){
+      text-align: left;
+      padding: 0 .05rem;
+      font-size: .12rem;
+      color: #999;
+    }
+    p:nth-child(3){
+      text-align: left;
+      font-size: .12rem;
+      color: #999;
+      padding: .15rem .05rem;
+      span{
+        color: red;
+        font-size: .17rem;
+        font-weight: bolder;
+      }
+    }
+  }
+}
 
 footer{width: 100%; display: flex; border-top: 1px solid #cccccc;padding: .1rem 0;position: fixed;bottom: 0;  }
 footer a{flex: 1}

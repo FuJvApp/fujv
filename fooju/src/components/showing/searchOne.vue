@@ -2,7 +2,7 @@
   <div>
     <!-- v-model="value" -->
   <mt-search
-    cancel-text="返回"
+    cancel-text="取消"
     placeholder="搜索">
   </mt-search>
   </div>
