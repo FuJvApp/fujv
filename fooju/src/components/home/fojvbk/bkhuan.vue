@@ -37,7 +37,7 @@
     },
     created () {
       this.getData()
-      this.getData1()
+      this.getData3()
       this.getData2()
     },
     methods: {
@@ -49,7 +49,7 @@
           }
         })
       },
-      getData1 () {
+      getData3 () {
         var self = this
         EncyList({cat1: 6, cat2: 27, page_size: this.page_size}).then(function (res) {
           if (res.data && res.data.code === 200) {
