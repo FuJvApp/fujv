@@ -37,6 +37,22 @@ export const retalLists = params => {
 export const adLists = params => {
   return axios.get(api.adLists, {params: params})
 }
+// 区域列表
+export const RegionLists = () => {
+  return axios.get(api.RegionLists)
+}
+// 租房房源信息
+export const RtalDetail = params => {
+  return axios.get(api.RtalDetail, {params: params})
+}
+// 地图找房
+export const MapMapHouse = params => {
+  return axios.get(api.MapMapHouse, {params: params})
+}
+// 更多房屋类型选项BasicsDrop
+export const BasicsDrop = params => {
+  return axios.get(api.BasicsDrop, {params: params})
+}
 // 新房列表
 export const newlist = params => {
   return axios.get(api.NewList, {params: params})
@@ -44,9 +60,9 @@ export const newlist = params => {
 export const twolist = params => {
   return axios.get(api.used_lists, {params: params})
 }
-export const villagefind = params => {
-  return axios.get(api.VillageFind, {params: params})
-}
+// export const villagefind = params => {
+//   return axios.get(api.VillageFind, {params: params})
+// }
 export const regionlist = data => {
   return axios.get(api.RegionLists)
 }
@@ -70,8 +86,4 @@ export const EncyTypeList = params => {
 // 百科文字标题
 export const EncyList = params => {
   return axios.get(api.EncyList, {params: params})
-}
-// 区域接口
-export const RegionLists = params => {
-  return axios.get(api.RegionLists, {params: params})
 }

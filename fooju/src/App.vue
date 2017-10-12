@@ -25,6 +25,7 @@ export default {
   padding: 0;
   width: 100%;
   text-align: center;
+  height: 100%;
 }
   #app>div{
     height: 100%;

@@ -1,36 +1,44 @@
 <template>
-    <div class="twoSearch rent">
-      <mt-header fixed>
-        <div slot="left">
-          <span class="input">
-            <i class="iconfont icon-sousuo"></i>
-            <input id="v_search" @input="searchVillage($event.target.value)" type="text" v-focus="true" placeholder="请输入小区或商圈名">
-            <i @click="clearInput" class="iconfont icon-close" v-if="show"></i>
-          </span>
-        </div>
-        <mt-button @click="goBack" slot="right">取消</mt-button>
-      </mt-header>
-      <ul class="villageList" v-if="showVillage">
-        <li v-for="item in villageList" @click="searchContent(item.name)">
-          <span>{{item.name}}</span>
-          <i>{{item.count}}套</i>
-        </li>
-      </ul>
-      <div class="searchRecord">
-        <div class="search-content">
-          <p class="title">历史搜索</p>
-          <ul class="record-content">
-            <li v-for="(item,index) in historyList" @click="historySearch(item)">
-              <p>{{item}}</p>
-              <i class="iconfont icon-shanchu" @click.stop="removeOne(index)"></i>
-            </li>
-          </ul>
-        </div>
-        <div class="clear-search" @click="removeAll">
-          清空历史记录
-        </div>
+  <div class="twoSearch rent">
+    <mt-header fixed>
+      <div slot="left">
+        <span class="input">
+          <div class="home-type" @click="typeToggle">
+            {{homeType}}
+            <i class="iconfont icon-xia" style="font-size: .14rem"></i>
+            <ul class="type-list" v-if="typeShow">
+              <li v-for="item in homeTypes" @click="typeChange(item)">
+                {{item}}
+              </li>
+            </ul>
+          </div>
+          <input id="v_search" @input="searchVillage($event.target.value)" type="text" v-focus="true" placeholder="请输入小区或商圈名">
+          <i @click="clearInput" class="iconfont icon-close" v-if="show"></i>
+        </span>
+      </div>
+      <mt-button @click="goBack" slot="right">取消</mt-button>
+    </mt-header>
+    <ul class="villageList" v-if="showVillage">
+      <li v-for="item in villageList" @click="searchContent(item.name)">
+        <span>{{item.name}}</span>
+        <i>{{item.count}}套</i>
+      </li>
+    </ul>
+    <div class="searchRecord">
+      <div class="search-content">
+        <p class="title">历史搜索</p>
+        <ul class="record-content">
+          <li v-for="(item,index) in historyList" @click="historySearch(item)">
+            <p>{{item}}</p>
+            <i class="iconfont icon-shanchu" @click.stop="removeOne(index)"></i>
+          </li>
+        </ul>
+      </div>
+      <div class="clear-search" @click="removeAll">
+        清空历史记录
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -41,7 +49,11 @@
         show: false,
         showVillage: true,
         villageList: [],
-        historyList: []
+        historyList: [],
+        types: this.$route.query.types,
+        homeTypes: ['二手房', '新房', '租房'],
+        homeType: this.$route.query.types === 1 ? '二手房' : this.$route.query.types === 2 ? '新房' : '租房',
+        typeShow: false
       }
     },
     created () {
@@ -51,12 +63,18 @@
         this.historyList = str.split(',').splice(0, 4)
       }
       console.log(this.historyList)
-      var arr = [1, 2, 3, 4, 5]
-      console.log(arr)
+//      var arr = [1, 2, 3, 4, 5]
+      console.log('***' + this.types)
     },
     methods: {
+      typeChange (item) {
+        this.homeType = item
+      },
+      typeToggle () {
+        this.typeShow = !this.typeShow
+      },
       goBack () {
-        this.$router.go(-1)
+        this.$router.push({path: '/maphome', query: {types: this.types}})
       },
       searchContent (village) {
         this.historyList.unshift(village)
@@ -166,8 +184,56 @@
     border-bottom: 1px solid #eeeeee;
     position: static;
   }
+  .twoSearch.rent .mint-header .is-left{
+    position: relative;
+  }
+  .twoSearch.rent .mint-header .is-left .type-list{
+    position: absolute;
+    top: .5rem;
+    left: .2rem;
+    background-color: #fff;
+    border: 1px solid #c5c5c5;
+    border-radius: .07rem;
+    line-height: .4rem;
+    animation: show 1s forwards;
+  }
+  @keyframes show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .twoSearch.rent .mint-header .is-left .type-list::before{
+    content: '';
+    display: block;
+    height: .1rem;
+    width: .1rem;
+    border-top: 1px solid #e2e2e2;
+    border-left: 1px solid #e2e2e2;
+    position: absolute;
+    bottom: 100%;
+    background-color: #fff;
+    left: 50%;
+    transform: translateX(-50%) rotateZ(45deg) translateY(50%);
+  }
+  .twoSearch.rent .mint-header .is-left .type-list li{
+    border-bottom: 1px solid #c5c5c5;
+    padding: 0 .15rem;
+    text-align: center;
+    position: relative;
+  }
   .twoSearch.rent .input,.twoSearch.rent .input input{
     background-color: #f4f4f4;
+  }
+  .twoSearch.rent .input .home-type{
+    padding-right: .1rem;
+    font-size: .14rem;
+    margin-right: .11rem;
+    height: .2rem;
+    line-height: .2rem;
+    border-right: 1px solid #999999;
   }
   .twoSearch.rent .is-right .mint-button-text{
     color: #999999;

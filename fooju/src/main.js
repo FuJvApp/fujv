@@ -13,11 +13,7 @@ import './style/reset.css'
 import './font/iconfont.css'
 import './font2/iconfont.css'
 import './fontwqn/iconfont.css'
-import './font/iconfont.css'
-import './font2/iconfont.css'
-import './fontwqn/iconfont.css'
 import './fontw/iconfont.css'
-import 'mint-ui/lib/style.css'
 import myPlugins from './components/components'
 import * as api from './api/config'
 // import flexible from 'flexible'
@@ -33,7 +29,6 @@ Vue.use(myPlugins)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
   store,
   template: '<App/>',
   components: { App }

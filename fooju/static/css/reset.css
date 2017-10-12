@@ -47,6 +47,9 @@ body {
   line-height: 1;
   font-size: 0.14rem;
 }
+html,body{
+  height: 100%;
+}
 ol, ul {
     list-style: none;
 }

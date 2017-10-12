@@ -8,7 +8,9 @@
         <input type="text" placeholder="请输入小区或商圈名">
       </router-link>
       <span class="searchicon"></span>
-      <span class="dizhi"></span>
+      <router-link :to="{path: '/maphome', query: {types: this.types}}">
+        <span class="dizhi"></span>
+      </router-link>
     </section>
     <section class="lunbo">
       <mt-swipe class="activeswipe">
@@ -57,7 +59,8 @@
         page_num: 1,
         page_size: 5,
         tableData: [],
-        loading: false
+        loading: false,
+        types: 1
       }
     },
     created () {

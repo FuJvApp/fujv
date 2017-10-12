@@ -31,7 +31,7 @@
             </router-link>
           </li>
           <li>
-            <router-link to="/maphome">
+            <router-link :to="{path: '/maphome', query: {types: this.types}}">
               <div>
                 <p><img src="../../assets/home-icon/maphome.png" alt=""></p>
                 <span>地图找房</span>
@@ -157,17 +157,13 @@
 </template>
 
 <script type="text/ecmascript-6">
-<<<<<<< HEAD
   import {Swipe, SwipeItem} from 'mint-ui'
-=======
   import {usedLists} from '../../api/config'
   import { Swipe, SwipeItem } from 'mint-ui'
->>>>>>> 6ac0fee710437db38cfe4b5478c7d65f342a7478
   export default {
     components: {
       SwipeItem,
       Swipe
-<<<<<<< HEAD
     }
   }
 </script>
@@ -205,15 +201,15 @@
         margin-top: 1rem;
         display: block;
         }
-=======
     },
     data () {
       return {
         page_num: 1,
         page_size: 5,
         tableData: [],
-        selected: '1'
->>>>>>> 6ac0fee710437db38cfe4b5478c7d65f342a7478
+        selected: '1',
+        selected: '1',
+        types: 1
       }
     },
     created () {

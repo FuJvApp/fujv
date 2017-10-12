@@ -11,6 +11,7 @@
           </div>
         </router-link>
         <router-link to="/ditu">
+        <router-link :to="{path: '/maphome', query: {types: this.types}}">
           <i class="iconfont icon-dizhi"></i>
         </router-link>
       </header>
@@ -115,7 +116,10 @@
         tableData: [],
         tableData2: [],
         tableData3: [],
-        tableData4: []
+        tableData4: [],
+        allloaded: false,
+        selected: '1',
+        types: 2
       }
     },
     components: {

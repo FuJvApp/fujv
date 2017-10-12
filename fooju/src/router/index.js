@@ -33,6 +33,8 @@ import zuhome from '../components/home/zuhome/zuhome.vue'
 import homesearch from '../components/home/online/HomeSearch.vue'
 import myowner from '../components/home/online/MyOwner.vue'
 import twoSearch from '../components/home/zuhome/twoSearch.vue'
+import mapSearch from '../components/home/maphome/mapSearch.vue'
+import rentMsg from '../components/home/zuhome/rentMsg.vue'
 import baike from '../components/home/fojvbk/baike.vue'
 import bknew from '../components/home/fojvbk/bknew.vue'
 import bkshow from '../components/home/fojvbk/bkshow.vue'
@@ -159,6 +161,10 @@ export default new Router({
       component: maphome
     },
     {
+      path: '/mapSearch',
+      component: mapSearch
+    },
+    {
       path: '/newhome',
       component: newhome
     },
@@ -181,6 +187,10 @@ export default new Router({
     {
       path: '/twoSearch',
       component: twoSearch
+    },
+    {
+      path: '/rentMsg',
+      component: rentMsg
     },
     {
       path: '/HomeSearch',
