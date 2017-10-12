@@ -12,10 +12,6 @@ export default {
 
 <style>
 
-  html,body{
-    width: 100%;
-    height: 100%;
-  }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,7 +22,4 @@ export default {
   text-align: center;
   height: 100%;
 }
-  #app>div{
-    height: 100%;
-  }
 </style>
