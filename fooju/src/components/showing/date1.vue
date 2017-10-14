@@ -27,7 +27,7 @@
    padding-top: 1.1rem;
  }
   .one div{
-    margin: .2px auto;
+    margin: .2rem auto;
   }
   .two{
     font-size: .16rem;

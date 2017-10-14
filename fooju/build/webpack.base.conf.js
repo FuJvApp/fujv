@@ -14,6 +14,11 @@ module.exports = {
   },
   externals: {
     'BMap': 'BMap'
+    // 'BMap': 'BMap',
+    // 'BMap_Symbol_SHAPE_POINT': 'BMap_Symbol_SHAPE_POINT'
+    // 'vue': 'Vue',
+    // 'vue-router': 'VueRouter'
+    //   'axios': 'axios'
   },
   output: {
     path: config.build.assetsRoot,
@@ -32,15 +37,16 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
+      // {
+      //   test: /\.(js|vue)$/,
+      //   loader: 'eslint-loader',
+      //   enforce: 'pre',
+      //   include: [resolve('src'), resolve('test')],
+      //   options: {
+
+      //     formatter: require('eslint-friendly-formatter')
+      //   }
+      // },
       {
         test: /\.vue$/,
         loader: 'vue-loader',

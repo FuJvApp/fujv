@@ -64,13 +64,18 @@
 </template>
 
 <script>
+  import {Swipe, SwipeItem} from 'mint-ui'
   export default {
     data () {
       return {
-        listId: this.$route.params.listId,
+        listId: this.$route.query.listId,
         rentMsg: null,
         msgPic: []
       }
+    },
+    components: {
+      SwipeItem,
+      Swipe
     },
     created () {
       console.log(this.listId)

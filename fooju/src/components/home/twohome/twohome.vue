@@ -1,5 +1,5 @@
 <template>
-  <div :style="{'-webkit-overflow-scrolling': scrollMode}">
+  <div v-model="popupVisible">
     <section class="headertop">
       <router-link to="/">
         <span class="headericon el-icon-arrow-left"></span>
@@ -8,7 +8,9 @@
         <input type="text" placeholder="请输入小区或商圈名">
       </router-link>
       <span class="searchicon"></span>
-      <span class="dizhi"></span>
+      <router-link :to="{path: '/maphome', query: {types: this.types}}">
+        <span class="dizhi"></span>
+      </router-link>
     </section>
     <section class="lunbo">
       <mt-swipe class="activeswipe">
@@ -22,10 +24,11 @@
       <li @click="handleClick3">房型 <i class="iconfont icon-jiantouxia"></i></li>
       <li @click="handleClick4">类型 <i class="iconfont icon-jiantouxia"></i></li>
     </ul>
-    <mt-popup class="popup" v-model="popupVisible" position="top">
-        <tabs></tabs>
-    </mt-popup>
-      <ul class="content"
+    <el-dialog v-model="popupVisible">
+      <tabs @area="submints" @price="submits2" @bed="submits3" :va="va" :total_price="total_price" :rid="rid"></tabs>
+    </el-dialog>
+      <ul
+          class="content"
           v-infinite-scroll="loadMore"
           infinite-scroll-disabled="loading"
           infinite-scroll-distance="10">
@@ -52,10 +55,12 @@
     data () {
       return {
         popupVisible: false,
+        rid: '',
         page_num: 1,
         page_size: 5,
         tableData: [],
-        loading: false
+        loading: false,
+        types: 1
       }
     },
     created () {
@@ -78,7 +83,13 @@
       },
       getData () {
         var self = this
-        usedLists({page_num: this.page_num, page_size: this.page_size}).then(function (res) {
+        usedLists({
+          page_num: this.page_num,
+          page_size: this.page_size,
+          r_id: this.r_id,
+          total_price: this.total_price,
+          bedroom: this.bedroom
+        }).then(function (res) {
           if (res.data && res.data.code === 200) {
             self.tableData = res.data.data
           }
@@ -91,6 +102,21 @@
           this.page_size += 5
           this.loading = false
         }, 2500)
+      },
+      submints: function (data) {
+        this.r_id = data
+        this.getData()
+      },
+      submits2: function (data) {
+        this.total_price = data
+        this.getData()
+      },
+      submits3: function (data) {
+        for (let i = 0; i < data.length; i++) {
+          this.bedroom = data[i]
+        }
+        console.log(this.bedroom)
+        this.getData()
       }
     }
   }

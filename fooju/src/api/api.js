@@ -4,8 +4,6 @@
 let serverUrl = 'http://www.fooju.cn/fjw/api.php?'
 export default {
   serverUrl: 'http://www.fooju.cn/',
-  login: serverUrl + 's=Login/login', /* 登录 */
-  register: serverUrl + 's=Login/register', /* 注册 */
   used_lists: serverUrl + 's=Product/used_lists', /* 二手房列表 */
   usedDetail: serverUrl + 's=Product/used_detail_app', /* 二手房列详情 */
   adLists: serverUrl + 's=Advertisement/lists', /* 新闻列表 */
@@ -71,6 +69,7 @@ export default {
   VillageDeal: serverUrl + 's=Village/deal', /* 成交记录 */
   productUsedP: serverUrl + 's=Product/used_pic', /* 户型格局 */
   mapHouseVillage: serverUrl + 's=Map/mapHouseVillage', /* 地图小区列表 */
+  login: serverUrl + 's=Login/login', /* 登录 */
   MsgVerify: serverUrl + 's=Msg/verify', /* 验证码 */
   SendMsg: serverUrl + 's=Msg/send_msg', /* 发送验证码 */
   Register: serverUrl + 's=Login/register', /* 注册 */

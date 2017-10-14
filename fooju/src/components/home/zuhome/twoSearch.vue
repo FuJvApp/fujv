@@ -65,6 +65,7 @@
       },
       historySearch (village) {
         this.$router.push({name: 'zuhome', params: {village: village}})
+        this.$router.push({path: '/zuhome', query: {village: village}})
       },
       getVillageList (name) {
         var self = this

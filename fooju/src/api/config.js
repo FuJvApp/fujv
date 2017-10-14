@@ -1,5 +1,27 @@
 import api from './api.js'
 import axios from 'axios'
+
+// axios.defaults.withCredentials = true
+let qs = require('qs')
+// 我的
+export const msg = data => {
+  return axios.post(api.SendMsg, qs.stringify(data))
+}
+export const msgsend = data => {
+  return axios.post(api.MsgVerify, qs.stringify(data))
+}
+export const register = data => {
+  return axios.post(api.Register, qs.stringify(data))
+}
+export const login2 = data => {
+  return axios.post(api.login, qs.stringify(data))
+}
+export const forget = data => {
+  return axios.post(api.Forget, qs.stringify(data))
+}
+export const storedetail = data => {
+  return axios.get(api.Userdetail, {params: data})
+}
 export const usedDetail = data => {
   return axios.get(api.usedDetail, {id: data})
 }
@@ -27,7 +49,7 @@ export const RtalDetail = params => {
 export const MapMapHouse = params => {
   return axios.get(api.MapMapHouse, {params: params})
 }
-// 更多房屋类型选项
+// 更多房屋类型选项BasicsDrop
 export const BasicsDrop = params => {
   return axios.get(api.BasicsDrop, {params: params})
 }

@@ -1,66 +1,66 @@
 <template>
-  <div class="rent" :style="navVisible ? 'position: fixed' : ''">
-    <mt-header fixed>
-      <div slot="left">
-        <mt-button icon="back" @click="goBack"></mt-button>
-        <span class="input">
+    <div class="rent" :style="navVisible ? 'position: fixed' : ''">
+      <mt-header fixed>
+        <div slot="left">
+          <mt-button icon="back" @click="goBack"></mt-button>
+          <span class="input">
             <i class="iconfont icon-sousuo"></i>
             <input @focus="isFocus" type="text" placeholder="请输入小区或商圈名">
           </span>
-      </div>
-      <mt-button @click="goMap" class="iconfont icon-map-copy" slot="right"></mt-button>
-    </mt-header>
-    <section>
-      <mt-swipe :auto="1000*(ad_list.length*2+1) " :speed="1000">
-        <mt-swipe-item v-for="item in ad_list" :key="ad_list">
-          <img :src="'http://www.fooju.cn/'+item.picurl" alt="">
-        </mt-swipe-item>
-      </mt-swipe>
-      <div class="tab-space">
-        <ul class="zu-tab" :class="navVisible ? 'tab-fixed':''">
-          <li v-for="(item,index) in navList" @click="changNav(index)">
-            {{item.name}}
-            <i class="iconfont icon-xia" :class="navType == index && navVisible ? 'isSelect':''"></i>
-          </li>
-        </ul>
-        <ul class="areaList" v-if="navType==0">
-          <li @click="areaSelect(null, '区域')">不限</li>
-          <li v-for="item in navList[0].child" @click="areaSelect(item.id, item.area)">
-            {{item.area}}
-          </li>
-        </ul>
-        <ul class="rentList" v-if="navType==1">
-          <li @click="rentSelect(null)">不限</li>
-          <li v-for="item in navList[1].child" @click="rentSelect(item.id)">
-            {{item.area}}
-          </li>
-        </ul>
-        <ul class="typeList" v-if="navType==2">
-          <li @click="houseTypeSelect()" style="height: .4rem; line-height: .4rem">不限</li>
-          <li v-for="item in navList[2].child">
-            <label :for="'a'+item.value">{{item.label}}</label>
-            <input type="checkbox" :id="'a'+item.value" @click="typeChange(item.value, $event.target)">
-          </li>
-          <li class="type-affirm" @click="houseTypeSelect()">确认</li>
-        </ul>
-        <div class="moreList" v-if="navType==3">
-          <ul>
-            <li v-for="(item,index) in navList[3].child">
-              <p>
-                {{item.name}}
-              </p>
-              <ul class="listContent" :class="'listContent'+index">
-                <li v-for="dir in item.data" @click="mLCSelect($event.target)">
-                  {{dir.name}}
-                </li>
-              </ul>
+        </div>
+        <mt-button @click="goMap" class="iconfont icon-map-copy" slot="right"></mt-button>
+      </mt-header>
+      <section>
+        <mt-swipe :auto="1000*(ad_list.length*2+1) " :speed="1000">
+          <mt-swipe-item v-for="item in ad_list" :key="ad_list">
+            <img :src="'http://www.fooju.cn/'+item.picurl" alt="">
+          </mt-swipe-item>
+        </mt-swipe>
+        <div class="tab-space">
+          <ul class="zu-tab" :class="navVisible ? 'tab-fixed':''">
+            <li v-for="(item,index) in navList" @click="changNav(index)">
+              {{item.name}}
+              <i class="iconfont icon-xia" :class="navType == index && navVisible ? 'isSelect':''"></i>
             </li>
           </ul>
-          <div class="type-affirm clear-condition" @click="clearMoreSelect">清空条件</div>
-          <div class="type-affirm" @click="moreTypeSelect()">确认</div>
+          <ul class="areaList" v-if="navType==0">
+            <li @click="areaSelect(null, '区域')">不限</li>
+            <li v-for="item in navList[0].child" @click="areaSelect(item.id, item.area)">
+              {{item.area}}
+            </li>
+          </ul>
+          <ul class="rentList" v-if="navType==1">
+            <li @click="rentSelect(null)">不限</li>
+            <li v-for="item in navList[1].child" @click="rentSelect(item.id)">
+              {{item.area}}
+            </li>
+          </ul>
+          <ul class="typeList" v-if="navType==2">
+            <li @click="houseTypeSelect()" style="height: .4rem; line-height: .4rem">不限</li>
+            <li v-for="item in navList[2].child">
+              <label :for="'a'+item.value">{{item.label}}</label>
+              <input type="checkbox" :id="'a'+item.value" @click="typeChange(item.value, $event.target)">
+            </li>
+            <li class="type-affirm" @click="houseTypeSelect()">确认</li>
+          </ul>
+          <div class="moreList" v-if="navType==3">
+            <ul>
+              <li v-for="(item,index) in navList[3].child">
+                <p>
+                  {{item.name}}
+                </p>
+                <ul class="listContent" :class="'listContent'+index">
+                  <li v-for="dir in item.data" @click="mLCSelect($event.target)">
+                    {{dir.name}}
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <div class="type-affirm clear-condition" @click="clearMoreSelect">清空条件</div>
+            <div class="type-affirm" @click="moreTypeSelect()">确认</div>
+          </div>
         </div>
-      </div>
-      <ol class="zu-lists"
+        <ol class="zu-lists"
           v-infinite-scroll="loadMore"
           infinite-scroll-disabled="loading"
           infinite-scroll-distance="5"
@@ -95,20 +95,30 @@
         </div>
       </ol>
     </section>
-    <div class="sort" @click="sortSheet">
-      <i class="iconfont icon-paixu"></i>排序
+      <div class="sort" @click="sortSheet">
+        <i class="iconfont icon-paixu"></i>排序
+      </div>
+      <mt-actionsheet
+        :actions="sortType"
+        v-model="sortVisible"
+        cancelText="">
+      </mt-actionsheet>
+      <mt-popup
+        v-model="navVisible"
+        position="top"
+        class="tab-content">
+      </mt-popup>
+      <mt-actionsheet
+        :actions="sortType"
+        v-model="sortVisible"
+        cancelText="">
+      </mt-actionsheet>
+      <mt-popup
+        v-model="navVisible"
+        position="top"
+        class="tab-content">
+      </mt-popup>
     </div>
-    <mt-actionsheet
-      :actions="sortType"
-      v-model="sortVisible"
-      cancelText="">
-    </mt-actionsheet>
-    <mt-popup
-      v-model="navVisible"
-      position="top"
-      class="tab-content">
-    </mt-popup>
-  </div>
 </template>
 
 <script>
@@ -216,6 +226,7 @@
         dianti: null,
         m_type: null,
         village: this.$route.params.village,
+        village: this.$route.query.village,
         loading: false,
         ad_list: [],
         sortType: [
@@ -261,28 +272,9 @@
       this.getAreaList()
       this.getMoreList()
       console.log(this.village)
-//      var item
-//      for (item in this.navList[0]) {
-//        console.log(item)
-//      }
-//      Object.keys(this.navList[0]).forEach(function (item) {
-//        console.log(item)
-//      })
     },
     mounted () {
       window.addEventListener('scroll', this.handleScroll)
-//      var icons = document.querySelectorAll('.zu-tab li i')
-//      var self = this
-//      for (var i = 0; i < tabs.length; i++) {
-//        tabs[i].index = i
-//        tabs[i].flag = false
-//        tabs[i].addEventListener('click', function () {
-//          console.log(this.index)
-//          self.tabN = this.index
-//          self.houseType(this, tabs)
-//        })
-//      }
-//      console.log(tabs)
     },
     methods: {
       goMap () {
@@ -442,30 +434,6 @@
           tab.classList.remove('fixed-tab')
         }
       },
-//      houseType (el, tabs) {
-//        console.log('***++')
-//        console.log(el)
-//        console.log('***++')
-      // console.log(el)
-//        for (var i = 0; i < tabs.length; i++) {
-//          if (el.index !== i) {
-//            tabs[i].flag = false
-//          }
-//        }
-//        el.flag = !el.flag
-//        this.tabVisible = el.flag
-//        var tab = document.querySelector('.zu-tab')
-//        tab.classList.add('tab-fixed')
-//        for (var j = 0; j < tabs.length; j++) {
-//          tabs[j].classList.remove('active  is-opened')
-//          icons[j].classList.remove('icon-active')
-//          console.log(tabs[j])
-//        }
-//        console.log(1111)
-//        el.classList.add('active')
-//        var icon = document.querySelector('.active i')
-//        icon.classList.add('icon-active')
-//      },
       defaultSort () {
         console.log('默认排序')
         this.order = 0
