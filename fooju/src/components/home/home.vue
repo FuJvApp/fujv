@@ -142,6 +142,11 @@
     components: {
       SwipeItem,
       Swipe
+    },
+    data () {
+      return {
+        types: 1
+      }
     }
   }
 </script>

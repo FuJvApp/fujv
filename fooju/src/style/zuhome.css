@@ -1,3 +1,10 @@
+.rent{
+  width: 100%;
+  overflow: hidden;
+}
+.Toast span{
+  color: #fff;
+}
 .rent .sort{
   position: fixed;
   width: .85rem;
@@ -16,6 +23,7 @@
 }
 .rent .tab-space{
   height: .44rem;
+  width: 100%;
   background-color: #eeeeee;
 }
 .rent .zu-tab{
@@ -24,18 +32,114 @@
   justify-content: space-around;
   height: .44rem;
   border-bottom: 1px solid #eeeeee;
-  background-color: #fff;
+  background-color: #ffffff;
 }
-.rent .zu-tab.fixed-tab{
+.rent .zu-tab li{
+  height: 100%;
+  line-height: .44rem;
+}
+.rent .zu-tab li .iconfont{
+  transition: all 0.5s;
+  display: inline-block;
+}
+.rent .zu-tab .iconfont.isSelect{
+  transform: rotateZ(180deg);
+}
+.rent .areaList,.rent .rentList,.rent .typeList,.rent .moreList{
+  width: 100%;
+  background-color: #fff;
+  text-align: left;
   position: fixed;
-  top: .44rem;
-  z-index: 888;
   left: 0;
+  z-index: 2999;
+  animation: show 1s forwards;
+}
+.rent .areaList li,.rent .rentList li{
+  height: .33rem;
+  line-height: .33rem;
+  padding: 0 .2rem;
+  border-bottom: 1px solid #eeeeee;
+}
+.rent .moreList>ul{
+  height: 3.1rem;
+  overflow: auto;
+}
+.rent .moreList>ul>li{
+  border-bottom: 1px solid #eeeeee;
+}
+.rent .moreList>ul>li p{
+  padding: .15rem .1rem;
+}
+.rent .moreList .listContent{
+  padding: .05rem;
+}
+.rent .moreList .listContent li{
+  display: inline-block;
+  width: .78rem;
+  height: .22rem;
+  line-height: .22rem;
+  text-align: center;
+  border: 1px solid #601986;
+  border-radius: .02rem;
+  margin: .05rem;
+}
+.rent .moreList .listContent li.isSelect{
+  background-color: #601986;
+  color: #fff;
+}
+.rent .typeList li{
+  height: .48rem;
+  line-height: .48rem;
+  padding: 0 .2rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eeeeee;
+}
+.rent .typeList li label{
+  flex: 1;
+}
+.rent .typeList li input{
+  height: .2rem;
+  width: .2rem;
+  outline: none;
+}
+.rent .typeList li.type-affirm,.rent .moreList .type-affirm{
+  background-color: #601986;
+  display: block;
+  text-align: center;
+  height: .44rem;
+  line-height: .44rem;
+  border: none;
+  font-weight: bold;
+  font-size: .15rem;
+  color: #fff;
+}
+.rent .moreList .type-affirm{
+  padding: 0;
+}
+.rent .moreList .type-affirm.clear-condition{
+  background-color: #fff;
+  font-weight: normal;
+  color: #999;
+  border-top: 1px solid #eeeeee;
+}
+@keyframes show {
+  from{
+    top: -100%;
+  }
+  to{
+    top: .44rem;
+  }
 }
 .rent .zu-tab.tab-fixed{
   position: fixed;
   top: 0;
-  z-index: 33333;
+  left: 0;
+  z-index: 4000;
+}
+.rent .tab-space.fixed-tab{
+  position: fixed;
+  top: .44rem;
   left: 0;
 }
 .rent section{
@@ -68,7 +172,7 @@
   padding: 0 .15rem;
 }
 .rent header{
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(0,0,0,0.1);
 }
 .rent .mint-header-title{
   flex: 0;
@@ -103,31 +207,43 @@
   line-height: .3rem;
 }
 .rent .zu-lists{
+  width: 100%;
   padding-left: .15rem;
+  box-sizing: border-box;
 }
 .rent .zu-lists li{
+  width: 100%;
   padding: .15rem 0;
+  box-sizing: inherit;
   border-bottom: 1px solid #eeeeee;
+  border-top: 1px solid #eeeeee;
 }
 .rent .zu-lists dl{
-  display: flex;
+  display: -webkit-box;
 }
 .rent .zu-lists dl dt{
   width: 1.2rem;
   height: .9rem;
+  flex-shrink: 0;
 }
 .rent .zu-lists dl dt img{
   width: 100%;
   height: 100%;
 }
 .rent .zu-lists dl dd{
-  flex: 1;
+  -webkit-box-flex: 1;
   text-align: left;
   padding-left: .15rem;
+  box-sizing: border-box;
+}
+.rent .zu-lists dl dd h3{
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .rent .zu-lists dl dd span{
   display: block;
-  margin-top: .1rem;
   color: #999999;
   font-size: .13rem;
   overflow: hidden;
@@ -136,9 +252,17 @@
   font-weight: bold;
 }
 .rent .zu-lists dl dd p{
-  color: #ff0000;
   margin-top: .1rem;
   font-weight: bold;
+}
+.rent .zu-lists dl dd p.deploy{
+
+}
+.rent .zu-lists dl dd p span{
+  display: inline-block;
+}
+.rent .zu-lists dl dd p:last-child span:first-child{
+  color: #ff0000;
 }
 .rent .load{
   text-align: center;
@@ -161,6 +285,5 @@
   width: 100%;
 }
 .rent .tab-content{
-  padding-top: .44rem;
   width: 100%;
 }

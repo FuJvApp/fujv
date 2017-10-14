@@ -9,9 +9,12 @@ import jilu from '../components/showing/date2.vue'
 import biaolist from '../components/showing/liebiaolist.vue'
 import searchOne from '../components/showing/searchOne.vue'
 import self from '../components/self/self.vue'
+import followHome from '../components/self/myFollow/followHome.vue'
 import twohome from '../components/home/twohome/twohome.vue'
 import foundhome from '../components/home/foundhome/foundhome.vue'
 import maphome from '../components/home/maphome/maphome.vue'
+import mapSearch from '../components/home/maphome/mapSearch.vue'
+import plotHomeList from '../components/home/maphome/plotHomeList.vue'
 import newhome from '../components/home/newhome/newhome.vue'
 import online from '../components/home/online/online.vue'
 import schoolhome from '../components/home/schoolhome/schoolhome.vue'
@@ -20,6 +23,7 @@ import zuhome from '../components/home/zuhome/zuhome.vue'
 import homesearch from '../components/home/online/HomeSearch.vue'
 import myowner from '../components/home/online/MyOwner.vue'
 import twoSearch from '../components/home/zuhome/twoSearch.vue'
+import rentMsg from '../components/home/zuhome/rentMsg.vue'
 Vue.use(Router)
 
 import sousuo from '../components/home/newhome/sousuo.vue'
@@ -62,6 +66,11 @@ export default new Router({
       ]
     },
     {
+      path: '/followHome',
+      name: 'followHome',
+      component: followHome
+    },
+    {
       path: '/sousuo',
       component: sousuo
     },
@@ -75,7 +84,16 @@ export default new Router({
     },
     {
       path: '/maphome',
+      name: 'maphome',
       component: maphome
+    },
+    {
+      path: '/mapSearch',
+      component: mapSearch
+    },
+    {
+      path: '/plotHomeList',
+      component: plotHomeList
     },
     {
       path: '/newhome',
@@ -95,11 +113,17 @@ export default new Router({
     },
     {
       path: '/zuhome',
+      name: 'zuhome',
       component: zuhome
     },
     {
       path: '/twoSearch',
       component: twoSearch
+    },
+    {
+      path: '/rentMsg',
+      name: 'rentMsg',
+      component: rentMsg
     },
     {
       path: '/HomeSearch',
