@@ -27,8 +27,13 @@ module.exports = {
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    // 跨域
     proxyTable: {
-      'api':''
+      // 'api1':'http://fooju.cn',
+      // 'api2':{target: 'http://fooju.cn'}
+      //  const login=dat =>{
+      //  return axios.get('api1/login', {params: data})
+      // }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

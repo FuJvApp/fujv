@@ -32,7 +32,6 @@
             <img src="../../assets/self/qq.png" alt="">
           </a>
           <a href="https://api.weibo.com/oauth2/authorize?client_id=4035548413&redirect_uri=http%3A%2F%2Fm.fooju.cn%2Fself">
-            <!--http://m.fooju.cn/self-->
           <img src="../../assets/self/wb.png" alt="">
           </a>
         </div>
@@ -50,17 +49,8 @@
       return {
         number: '',
         psd: '',
+        qq: [],
         loadvisible: false
-      }
-    },
-    mounted () {
-      if(this.isWeiXin()){    //是来自微信内置浏览器
-        // 获取微信信息，如果之前没有使用微信登陆过，将进行授权登录
-        this.$http.get(this.$root.api+"/index/index/wx_info").then((res) => {
-          if(res.data.code!=0){
-            location.href='http://m.fooju.cn/self';
-          }
-        })
       }
     },
     methods: {
@@ -80,31 +70,6 @@
                 self.$router.push('home')
               }, 2000)
               console.log(112)
-            }
-          })
-        }
-      },
-      isWeiXin () {
-        let ua = window.navigator.userAgent.toLowerCase();
-        console.log(ua)// mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
-        if (ua.match(/MicroMessenger/i) === 'micromessenger') {
-          return true
-        } else {
-          return false;
-        }
-      },
-      test () {
-        if (this.isWeiXin()) {
-          // 微信登录，接口由后台定义
-          this.$http.get('http://m.fooju.cn/self').then((res) => {
-            if (res.data.code === 0) {   // 微信登录成功跳转个人中心
-              this.$router.push({
-                name: 'UserHome'
-              })
-            } else {                // 微信登录失败，使用填写信息登录
-              this.$router.push({
-                name: 'Login'
-              })
             }
           })
         }

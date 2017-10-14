@@ -9,15 +9,15 @@ function resolve (dir) {
 }
 
 module.exports = {
-  externals: {
-    'BMap': 'BMap'
-  },
   entry: {
     app: './src/main.js'
   },
   externals: {
-    'BMap': 'BMap',
-    'BMap_Symbol_SHAPE_POINT': 'BMap_Symbol_SHAPE_POINT'
+    // 'BMap': 'BMap',
+    // 'BMap_Symbol_SHAPE_POINT': 'BMap_Symbol_SHAPE_POINT'
+    // 'vue': 'Vue',
+    // 'vue-router': 'VueRouter'
+    //   'axios': 'axios'
   },
   output: {
     path: config.build.assetsRoot,

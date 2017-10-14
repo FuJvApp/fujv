@@ -3,7 +3,6 @@
 </template>
 
 <script>
-  import BMap from 'BMap'
   export default {
     name: 'bdmap',
     props: {

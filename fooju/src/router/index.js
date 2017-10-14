@@ -11,6 +11,7 @@ import biaolist from '../components/showing/liebiaolist.vue'
 import searchOne from '../components/showing/searchOne.vue'
 import self from '../components/self/self.vue'
 import login from '../components/self/login.vue'
+import phone from '../components/self/phone.vue'
 import register from '../components/self/register.vue'
 import register2 from '../components/self/register2.vue'
 import password from '../components/self/password.vue'
@@ -92,6 +93,10 @@ export default new Router({
     {
       path: '/login',
       component: login
+    },
+    {
+      path: '/phone',
+      component: phone
     },
     {
       path: '/register',

@@ -33,13 +33,13 @@
 <script>
   import {navbar, tabitem, popup} from 'mint-ui'
   import {maphouse, mapvillage} from '../../../api/config'
-  import BMap from 'BMap'
   export default{
     data () {
       return {
         types: '1',
         area: '',
         mapdata: [],
+        size: 13,
         toolvisible: false,
         popupVisible: false
       }
@@ -62,23 +62,25 @@
 //          var label = new BMap.Label(n)
 //          map.addOverlay(label)
 //        }
+        var firstpoint = new BMap.Point(self.mapdata[0].log, self.mapdata[0].lat)
+        map.centerAndZoom(firstpoint, self.size)
         for (var i = 0; i < self.mapdata.length; i++) {
 //          console.log(self.mapdata[i].log)
           var point = new BMap.Point(self.mapdata[i].log, self.mapdata[i].lat)
-          map.centerAndZoom(point, 12)
           var pots = {
             position: point,
             offset: new BMap.Size(-15, -55)
           }
           if (self.area === 1 && self.types === '1') {
-            label = new BMap.Label(self.mapdata[i].name + '\n' + self.mapdata[i].id + '套', pots)  // 创建标注
+            label = new BMap.Label(self.mapdata[i].name + '<br>' + self.mapdata[i].count + '套', pots)  // 创建标注
             label.addEventListener('click', this.popup1)
           } else if (self.types === '2' && self.area === 1) {
-            label = new BMap.Label(self.mapdata[i].name + '\n' + self.mapdata[i].average_price + '元/平', pots)  // 创建标注
+            label = new BMap.Label(self.mapdata[i].name + '<br>' + self.mapdata[i].average_price + '元/平', pots)  // 创建标注
           } else if (self.types === '3' && self.area === 1) {
-            label = new BMap.Label(self.mapdata[i].name + '\n' + self.mapdata[i].id + '套', pots)  // 创建标注
+            label = new BMap.Label(self.mapdata[i].name + '<br>' + self.mapdata[i].count + '套', pots)  // 创建标注
           } else if (self.area === '') {
-            label = new BMap.Label(self.mapdata[i].area + '\n' + self.mapdata[i].count + '套', pots)  // 创建标注
+            console.log(self.mapdata)
+            label = new BMap.Label(self.mapdata[i].area + '<br>' + self.mapdata[i].count + '套', pots)  // 创建标注
             label.addEventListener('click', this.getdata2)
           }
           label.setStyle({
@@ -100,6 +102,7 @@
         maphouse({types: self.types, province: '内蒙古', city: '呼和浩特', ad: 'area'}).then(function (res) {
           if (res.data && res.data.code === 200) {
             self.mapdata = res.data.datas
+            self.size = 13
             console.log(self.mapdata)
             self.baiduMap()
           }
@@ -110,6 +113,7 @@
         this.area = 1
         mapvillage({types: self.types, area: 1}).then(function (res) {
           if (res.data && res.data.code === 200) {
+            self.size = 16
             self.mapdata = res.data.datas
             self.baiduMap()
           }

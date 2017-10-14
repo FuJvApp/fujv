@@ -156,6 +156,7 @@
         div{
           padding-bottom: 8px;
           text-align: left;
+          font-size: 14px;
         }
         div:nth-child(2){
           color: #999;

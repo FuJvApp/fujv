@@ -3,6 +3,7 @@ import axios from 'axios'
 
 // axios.defaults.withCredentials = true
 let qs = require('qs')
+// 我的
 export const msg = data => {
   return axios.post(api.SendMsg, qs.stringify(data))
 }

@@ -84,6 +84,9 @@
 </template>
 
 <script>
+//  $(document).ready(function () {
+//    alert(123456)
+//  })
   import {regionlist, basicsdrop, twolist} from '../../../api/config'
   import {swipe, swipeitem, popup, navbar, tabitem, loadmore, spinner, actionsheet, checklist} from 'mint-ui'
   export default{
@@ -352,6 +355,9 @@
       line-height: 50px;
       display: flex;
       justify-content: space-around;
+      i{
+        font-size: .16rem;
+      }
     }
     .tap.active{
       position: absolute;
@@ -369,9 +375,9 @@
         border-bottom: 1px solid #cccccc;
       }
       .one img {
-        width: 132px;
-        height: 100px;
-        margin: 0 10px;
+        width: 1.2rem;
+        height: .9rem;
+        margin: 0 .08rem;
       }
       .two p {
         text-align: left;
